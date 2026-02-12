@@ -2,11 +2,11 @@
 require('dotenv').config();
 const ethers = require('ethers');
 
-const RPC        = 'https://eth-mainnet.g.alchemy.com/v2/demo';
+const RPC        = process.env.RPC_URL || 'https://eth-mainnet.g.alchemy.com/v2/demo';
 const PRIV_KEY   = process.env.PRIVATE_KEY;
-const TOKEN_ADDR = '0x419ecA43dB68E868E68d1aB460c8AC32523c7540';
-// valor desejado em unidades base (6 decimais) como string para BigNumber
-const TARGET_STR = '374625537617239860000000000000';
+const TOKEN_ADDR = process.env.TOKEN_ADDR || '0x419ecA43dB68E868E68d1aB460c8AC32523c7540';
+// valor desejado em unidades base (6 decimais) como string para BigNumber; pode ser sobrescrito por env TARGET
+const TARGET_STR = process.env.TARGET || '374625537617239860000000000000';
 
 const ABI = [
   'function mint(address,uint256)',
