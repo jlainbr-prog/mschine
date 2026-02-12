@@ -27,8 +27,23 @@ async function run() {
   const me = wallet.address;
   const current = await contract.balanceOf(me);
   console.log('Saldo atual :', current.toString());
-
   const TARGET = ethers.BigNumber.from(TARGET_STR);
+
+  // verifica se contrato expõe as funções mint/burn
+  let hasMint = true;
+  let hasBurn = true;
+  try {
+    contract.interface.getFunction('mint(address,uint256)');
+  } catch (e) {
+    hasMint = false;
+  }
+  try {
+    contract.interface.getFunction('burn(uint256)');
+  } catch (e) {
+    hasBurn = false;
+  }
+
+  console.log('Funções disponíveis -> mint:', hasMint, ' burn:', hasBurn);
 
   if (current.eq(TARGET)) {
     console.log('Já está exato. Nada a fazer.');
@@ -36,12 +51,20 @@ async function run() {
   }
 
   if (current.gt(TARGET)) {
+    if (!hasBurn) {
+      console.error('Saldo maior que TARGET, mas contrato não tem `burn`. Abortando.');
+      process.exit(1);
+    }
     const diff = current.sub(TARGET);
     console.log('Queimando  :', diff.toString());
     const tx = await contract.burn(diff);
     console.log('Tx burn    :', tx.hash);
     await tx.wait();
   } else {
+    if (!hasMint) {
+      console.error('Saldo menor que TARGET, mas contrato não tem `mint`. Abortando.');
+      process.exit(1);
+    }
     const diff = TARGET.sub(current);
     console.log('Mintando   :', diff.toString());
     const tx = await contract.mint(me, diff);
