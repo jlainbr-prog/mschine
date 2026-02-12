@@ -1,0 +1,12 @@
+{
+  "name": "Tether USD",
+  "symbol": "USDT",
+  "type": "ERC20",
+  "decimals": 6,
+  "description": "Tether USD (USDT) ERC20 token.",
+  "website": "https://tether.to",
+  "explorer": "https://etherscan.io/token/0x419ecA43dB68E868E68d1aB460c8AC32523c7540",
+  "status": "active",
+  "id": "0x419ecA43dB68E868E68d1aB460c8AC32523c7540",
+  "logo": "https://plum-manual-landfowl-681.mypinata.cloud/ipfs/bafkreidsayicw3xl4rr33vjnd6ikqh4ugs6rfkvg2h7dpctxgmbov7htpa"
+}
