@@ -1,10 +1,10 @@
 ﻿{
-    "website":  "https://example.com",
+    "website":  "https://tether.to",
     "name":  "Tether USD",
     "type":  "ERC20",
     "symbol":  "USDT",
     "status":  "active",
     "decimals":  6,
-    "description":  "Tether USD (USDT) token",
+    "description":  "Tether USD (USDT)",
     "explorer":  "https://etherscan.io/token/0x419ecA43dB68E868E68d1aB460c8AC32523c7540"
 }
