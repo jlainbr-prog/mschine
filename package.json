@@ -1,0 +1,55 @@
+{
+  "name": "tether-usdt-contract",
+  "version": "1.0.0",
+  "description": "Consolidated and optimized Tether (USDT) ERC20 smart contract implementation",
+  "main": "index.js",
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "deploy": "hardhat run scripts/deploy.js",
+    "deploy:polygon": "hardhat run scripts/deploy.js --network polygon",
+    "deploy:sepolia": "hardhat run scripts/deploy.js --network sepolia",
+    "verify": "hardhat verify",
+    "clean": "hardhat clean",
+    "flatten": "hardhat flatten contracts/TetherToken-Consolidated.sol > flattened.sol"
+  },
+  "keywords": [
+    "ethereum",
+    "usdt",
+    "tether",
+    "erc20",
+    "solidity",
+    "smart-contract",
+    "blockchain",
+    "token"
+  ],
+  "author": "USDT Team",
+  "license": "MIT",
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.2.3",
+    "@nomiclabs/hardhat-etherscan": "^3.1.7",
+    "@nomiclabs/hardhat-waffle": "^2.0.6",
+    "chai": "^4.3.7",
+    "dotenv": "^16.0.3",
+    "ethereum-waffle": "^4.0.10",
+    "ethers": "^5.7.2",
+    "hardhat": "^2.14.0",
+    "solidity-coverage": "^0.8.2",
+    "@solidity-parser/parser": "^0.16.0"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.9.0"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/tether-usdt-contract.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/tether-usdt-contract/issues"
+  },
+  "homepage": "https://github.com/yourusername/tether-usdt-contract#readme"
+}

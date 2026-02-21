@@ -1,0 +1,126 @@
+# Dependency directories
+node_modules/
+package-lock.json
+yarn.lock
+
+# Hardhat artifact directories
+cache/
+.hardhat/
+
+# Keep only TetherToken artifacts
+artifacts/*
+!artifacts/TetherToken.json
+!artifacts/TetherToken_metadata.json
+!artifacts/TetherToken-Complete.json
+
+# Truffle artifacts
+build/
+truffle-config.js.bak
+
+# IDE specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.project
+.pydevproject
+.settings/
+.classpath
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# OS specific files
+Thumbs.db
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# Build outputs
+dist/
+build/
+out/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Temporary files
+*.tmp
+*.temp
+.tmp/
+
+# Git
+.git/
+
+# Editor backup files
+*~
+*.bak
+*.swp
+*.swo
+.project
+.DS_Store
+
+# Duplicate/Redundant files (removed during optimization)
+TetherToken.sol...File*
+contracts/BasicToken.sol
+contracts/BlackList.sol
+contracts/Ownable.sol
+contracts/Pausable.sol
+contracts/SafeMath.sol
+contracts/StandardToken.sol
+contracts/StandardTokenWithFees.sol
+contracts/*.json
+*.backup
+*.old
+
+# Machine learning/AI cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Database files
+*.db
+*.sqlite
+
+# Remix IDE
+.deps/
+.states/
+.debug/
+.cache/
+
+# Private keys / Secrets
+private_key.txt
+*.pem
+*.key
+mnemonic.txt
+
+# Documentation build files
+docs/_build/
+site/
+
+# Generated files
+CHANGELOG.md.bak
+version.txt
+
+# Node modules scripts
+node_modules/.bin/
+
+# Compiled contracts
+*.abi
+*.bin
+
+# Temporary deployment files
+deployments/temp/
