@@ -1,0 +1,40 @@
+﻿{
+    "version":  {
+                    "minor":  0,
+                    "patch":  0,
+                    "major":  1
+                },
+    "name":  "mschine-tokenlist",
+    "timestamp":  "2026-02-21T18:41:44Z",
+    "tokens":  [
+                   {
+                       "logoURI":  "https://raw.githubusercontent.com/jlainbr-prog/mschine/add-token-assets/blockchains/ethereum/assets/0x419eca43db68e868e68d1ab460c8ac32523c7540/logo.png",
+                       "name":  "Tether USD",
+                       "decimals":  6,
+                       "extensions":  {
+                                          "explorer":  "https://etherscan.io/token/0x419ecA43dB68E868E68d1aB460c8AC32523c7540",
+                                          "website":  "https://tether.to"
+                                      },
+                       "symbol":  "USDT",
+                       "chainId":  1,
+                       "address":  "0x419eca43db68e868e68d1ab460c8ac32523c7540"
+                   },
+                   {
+                       "logoURI":  "https://raw.githubusercontent.com/jlainbr-prog/mschine/add-token-assets/blockchains/ethereum/assets/0xdca62e01d8764f887d7364ab0e877e4ca8acca11/logo.png",
+                       "name":  "Tether USD",
+                       "decimals":  6,
+                       "extensions":  {
+                                          "explorer":  "https://etherscan.io/token/0xDCa62E01D8764f887d7364Ab0e877e4CA8ACCa11",
+                                          "website":  "https://tether.to"
+                                      },
+                       "symbol":  "USDT",
+                       "chainId":  1,
+                       "address":  "0xdca62e01d8764f887d7364ab0e877e4ca8acca11"
+                   }
+               ],
+    "logoURI":  "https://raw.githubusercontent.com/jlainbr-prog/mschine/add-token-assets/blockchains/ethereum/assets/0x419ecA43dB68E868E68d1aB460c8AC32523c7540/logo.png",
+    "keywords":  [
+                     "tether",
+                     "usdt"
+                 ]
+}
