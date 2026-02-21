@@ -1,0 +1,2275 @@
+{
+	"id": "fcd25a097a5b597060d1be88ba66cd1c",
+	"_format": "hh-sol-build-info-1",
+	"solcVersion": "0.4.26",
+	"solcLongVersion": "0.4.26+commit.4563c3fc",
+	"input": {
+		"language": "Solidity",
+		"sources": {
+			"contracts/Ownable.sol": {
+				"content": "pragma solidity ^0.4.18;\r\n\r\n\r\n/**\r\n * @title Ownable\r\n * @dev The Ownable contract has an owner address, and provides basic authorization control\r\n * functions, this simplifies the implementation of \"user permissions\".\r\n */\r\ncontract Ownable {\r\n  address public owner;\r\n\r\n\r\n  event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);\r\n\r\n\r\n  /**\r\n   * @dev The Ownable constructor sets the original `owner` of the contract to the sender\r\n   * account.\r\n   */\r\n  function Ownable() public {\r\n    owner = msg.sender;\r\n  }\r\n\r\n\r\n  /**\r\n   * @dev Throws if called by any account other than the owner.\r\n   */\r\n  modifier onlyOwner() {\r\n    require(msg.sender == owner);\r\n    _;\r\n  }\r\n\r\n\r\n  /**\r\n   * @dev Allows the current owner to transfer control of the contract to a newOwner.\r\n   * @param newOwner The address to transfer ownership to.\r\n   */\r\n  function transferOwnership(address newOwner) public onlyOwner {\r\n    require(newOwner != address(0));\r\n    OwnershipTransferred(owner, newOwner);\r\n    owner = newOwner;\r\n  }\r\n\r\n}"
+			}
+		},
+		"settings": {
+			"optimizer": {
+				"enabled": false,
+				"runs": 200
+			},
+			"outputSelection": {
+				"*": {
+					"": [
+						"ast"
+					],
+					"*": [
+						"abi",
+						"metadata",
+						"devdoc",
+						"userdoc",
+						"storageLayout",
+						"evm.legacyAssembly",
+						"evm.bytecode",
+						"evm.deployedBytecode",
+						"evm.methodIdentifiers",
+						"evm.gasEstimates",
+						"evm.assembly"
+					]
+				}
+			},
+			"remappings": []
+		}
+	},
+	"output": {
+		"contracts": {
+			"contracts/Ownable.sol": {
+				"Ownable": {
+					"abi": [
+						{
+							"constant": true,
+							"inputs": [],
+							"name": "owner",
+							"outputs": [
+								{
+									"name": "",
+									"type": "address"
+								}
+							],
+							"payable": false,
+							"stateMutability": "view",
+							"type": "function"
+						},
+						{
+							"constant": false,
+							"inputs": [
+								{
+									"name": "newOwner",
+									"type": "address"
+								}
+							],
+							"name": "transferOwnership",
+							"outputs": [],
+							"payable": false,
+							"stateMutability": "nonpayable",
+							"type": "function"
+						},
+						{
+							"inputs": [],
+							"payable": false,
+							"stateMutability": "nonpayable",
+							"type": "constructor"
+						},
+						{
+							"anonymous": false,
+							"inputs": [
+								{
+									"indexed": true,
+									"name": "previousOwner",
+									"type": "address"
+								},
+								{
+									"indexed": true,
+									"name": "newOwner",
+									"type": "address"
+								}
+							],
+							"name": "OwnershipTransferred",
+							"type": "event"
+						}
+					],
+					"devdoc": {
+						"methods": {
+							"transferOwnership(address)": {
+								"details": "Allows the current owner to transfer control of the contract to a newOwner.\r",
+								"params": {
+									"newOwner": "The address to transfer ownership to.\r"
+								}
+							}
+						},
+						"title": "Ownable\r"
+					},
+					"evm": {
+						"assembly": "    /* \"contracts/Ownable.sol\":225:1049  contract Ownable {\r... */\n  mstore(0x40, 0x80)\n    /* \"contracts/Ownable.sol\":488:545  function Ownable() public {\r... */\n  callvalue\n    /* \"--CODEGEN--\":8:17   */\n  dup1\n    /* \"--CODEGEN--\":5:7   */\n  iszero\n  tag_1\n  jumpi\n    /* \"--CODEGEN--\":30:31   */\n  0x0\n    /* \"--CODEGEN--\":27:28   */\n  dup1\n    /* \"--CODEGEN--\":20:32   */\n  revert\n    /* \"--CODEGEN--\":5:7   */\ntag_1:\n    /* \"contracts/Ownable.sol\":488:545  function Ownable() public {\r... */\n  pop\n    /* \"contracts/Ownable.sol\":529:539  msg.sender */\n  caller\n    /* \"contracts/Ownable.sol\":521:526  owner */\n  0x0\n  dup1\n    /* \"contracts/Ownable.sol\":521:539  owner = msg.sender */\n  0x100\n  exp\n  dup2\n  sload\n  dup2\n  0xffffffffffffffffffffffffffffffffffffffff\n  mul\n  not\n  and\n  swap1\n  dup4\n  0xffffffffffffffffffffffffffffffffffffffff\n  and\n  mul\n  or\n  swap1\n  sstore\n  pop\n    /* \"contracts/Ownable.sol\":225:1049  contract Ownable {\r... */\n  dataSize(sub_0)\n  dup1\n  dataOffset(sub_0)\n  0x0\n  codecopy\n  0x0\n  return\nstop\n\nsub_0: assembly {\n        /* \"contracts/Ownable.sol\":225:1049  contract Ownable {\r... */\n      mstore(0x40, 0x80)\n      jumpi(tag_1, lt(calldatasize, 0x4))\n      calldataload(0x0)\n      0x100000000000000000000000000000000000000000000000000000000\n      swap1\n      div\n      0xffffffff\n      and\n      dup1\n      0x8da5cb5b\n      eq\n      tag_2\n      jumpi\n      dup1\n      0xf2fde38b\n      eq\n      tag_3\n      jumpi\n    tag_1:\n      0x0\n      dup1\n      revert\n        /* \"contracts/Ownable.sol\":247:267  address public owner */\n    tag_2:\n      callvalue\n        /* \"--CODEGEN--\":8:17   */\n      dup1\n        /* \"--CODEGEN--\":5:7   */\n      iszero\n      tag_4\n      jumpi\n        /* \"--CODEGEN--\":30:31   */\n      0x0\n        /* \"--CODEGEN--\":27:28   */\n      dup1\n        /* \"--CODEGEN--\":20:32   */\n      revert\n        /* \"--CODEGEN--\":5:7   */\n    tag_4:\n        /* \"contracts/Ownable.sol\":247:267  address public owner */\n      pop\n      tag_5\n      jump(tag_6)\n    tag_5:\n      mload(0x40)\n      dup1\n      dup3\n      0xffffffffffffffffffffffffffffffffffffffff\n      and\n      0xffffffffffffffffffffffffffffffffffffffff\n      and\n      dup2\n      mstore\n      0x20\n      add\n      swap2\n      pop\n      pop\n      mload(0x40)\n      dup1\n      swap2\n      sub\n      swap1\n      return\n        /* \"contracts/Ownable.sol\":871:1044  function transferOwnership(address newOwner) public onlyOwner {\r... */\n    tag_3:\n      callvalue\n        /* \"--CODEGEN--\":8:17   */\n      dup1\n        /* \"--CODEGEN--\":5:7   */\n      iszero\n      tag_7\n      jumpi\n        /* \"--CODEGEN--\":30:31   */\n      0x0\n        /* \"--CODEGEN--\":27:28   */\n      dup1\n        /* \"--CODEGEN--\":20:32   */\n      revert\n        /* \"--CODEGEN--\":5:7   */\n    tag_7:\n        /* \"contracts/Ownable.sol\":871:1044  function transferOwnership(address newOwner) public onlyOwner {\r... */\n      pop\n      tag_8\n      0x4\n      dup1\n      calldatasize\n      sub\n      dup2\n      add\n      swap1\n      dup1\n      dup1\n      calldataload\n      0xffffffffffffffffffffffffffffffffffffffff\n      and\n      swap1\n      0x20\n      add\n      swap1\n      swap3\n      swap2\n      swap1\n      pop\n      pop\n      pop\n      jump(tag_9)\n    tag_8:\n      stop\n        /* \"contracts/Ownable.sol\":247:267  address public owner */\n    tag_6:\n      0x0\n      dup1\n      swap1\n      sload\n      swap1\n      0x100\n      exp\n      swap1\n      div\n      0xffffffffffffffffffffffffffffffffffffffff\n      and\n      dup2\n      jump\t// out\n        /* \"contracts/Ownable.sol\":871:1044  function transferOwnership(address newOwner) public onlyOwner {\r... */\n    tag_9:\n        /* \"contracts/Ownable.sol\":682:687  owner */\n      0x0\n      dup1\n      swap1\n      sload\n      swap1\n      0x100\n      exp\n      swap1\n      div\n      0xffffffffffffffffffffffffffffffffffffffff\n      and\n        /* \"contracts/Ownable.sol\":668:687  msg.sender == owner */\n      0xffffffffffffffffffffffffffffffffffffffff\n      and\n        /* \"contracts/Ownable.sol\":668:678  msg.sender */\n      caller\n        /* \"contracts/Ownable.sol\":668:687  msg.sender == owner */\n      0xffffffffffffffffffffffffffffffffffffffff\n      and\n      eq\n        /* \"contracts/Ownable.sol\":660:688  require(msg.sender == owner) */\n      iszero\n      iszero\n      tag_11\n      jumpi\n      0x0\n      dup1\n      revert\n    tag_11:\n        /* \"contracts/Ownable.sol\":968:969  0 */\n      0x0\n        /* \"contracts/Ownable.sol\":948:970  newOwner != address(0) */\n      0xffffffffffffffffffffffffffffffffffffffff\n      and\n        /* \"contracts/Ownable.sol\":948:956  newOwner */\n      dup2\n        /* \"contracts/Ownable.sol\":948:970  newOwner != address(0) */\n      0xffffffffffffffffffffffffffffffffffffffff\n      and\n      eq\n      iszero\n        /* \"contracts/Ownable.sol\":940:971  require(newOwner != address(0)) */\n      iszero\n      iszero\n      tag_13\n      jumpi\n      0x0\n      dup1\n      revert\n    tag_13:\n        /* \"contracts/Ownable.sol\":1006:1014  newOwner */\n      dup1\n        /* \"contracts/Ownable.sol\":978:1015  OwnershipTransferred(owner, newOwner) */\n      0xffffffffffffffffffffffffffffffffffffffff\n      and\n        /* \"contracts/Ownable.sol\":999:1004  owner */\n      0x0\n      dup1\n      swap1\n      sload\n      swap1\n      0x100\n      exp\n      swap1\n      div\n      0xffffffffffffffffffffffffffffffffffffffff\n      and\n        /* \"contracts/Ownable.sol\":978:1015  OwnershipTransferred(owner, newOwner) */\n      0xffffffffffffffffffffffffffffffffffffffff\n      and\n      0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0\n      mload(0x40)\n      mload(0x40)\n      dup1\n      swap2\n      sub\n      swap1\n      log3\n        /* \"contracts/Ownable.sol\":1030:1038  newOwner */\n      dup1\n        /* \"contracts/Ownable.sol\":1022:1027  owner */\n      0x0\n      dup1\n        /* \"contracts/Ownable.sol\":1022:1038  owner = newOwner */\n      0x100\n      exp\n      dup2\n      sload\n      dup2\n      0xffffffffffffffffffffffffffffffffffffffff\n      mul\n      not\n      and\n      swap1\n      dup4\n      0xffffffffffffffffffffffffffffffffffffffff\n      and\n      mul\n      or\n      swap1\n      sstore\n      pop\n        /* \"contracts/Ownable.sol\":871:1044  function transferOwnership(address newOwner) public onlyOwner {\r... */\n      pop\n      jump\t// out\n\n    auxdata: 0xa165627a7a723058205066872bbd04e201ccffbd76d91cf98d36e0662a88bc31fe6a2a99ab87ae423e0029\n}\n",
+						"bytecode": {
+							"linkReferences": {},
+							"object": "608060405234801561001057600080fd5b50336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550610291806100606000396000f30060806040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680638da5cb5b14610051578063f2fde38b146100a8575b600080fd5b34801561005d57600080fd5b506100666100eb565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156100b457600080fd5b506100e9600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610110565b005b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561016b57600080fd5b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff16141515156101a757600080fd5b8073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a3806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550505600a165627a7a723058205066872bbd04e201ccffbd76d91cf98d36e0662a88bc31fe6a2a99ab87ae423e0029",
+							"opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH2 0x10 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP CALLER PUSH1 0x0 DUP1 PUSH2 0x100 EXP DUP2 SLOAD DUP2 PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF MUL NOT AND SWAP1 DUP4 PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF AND MUL OR SWAP1 SSTORE POP PUSH2 0x291 DUP1 PUSH2 0x60 PUSH1 0x0 CODECOPY PUSH1 0x0 RETURN STOP PUSH1 0x80 PUSH1 0x40 MSTORE PUSH1 0x4 CALLDATASIZE LT PUSH2 0x4C JUMPI PUSH1 0x0 CALLDATALOAD PUSH29 0x100000000000000000000000000000000000000000000000000000000 SWAP1 DIV PUSH4 0xFFFFFFFF AND DUP1 PUSH4 0x8DA5CB5B EQ PUSH2 0x51 JUMPI DUP1 PUSH4 0xF2FDE38B EQ PUSH2 0xA8 JUMPI JUMPDEST PUSH1 0x0 DUP1 REVERT JUMPDEST CALLVALUE DUP1 ISZERO PUSH2 0x5D JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH2 0x66 PUSH2 0xEB JUMP JUMPDEST PUSH1 0x40 MLOAD DUP1 DUP3 PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF AND PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF AND DUP2 MSTORE PUSH1 0x20 ADD SWAP2 POP POP PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 RETURN JUMPDEST CALLVALUE DUP1 ISZERO PUSH2 0xB4 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH2 0xE9 PUSH1 0x4 DUP1 CALLDATASIZE SUB DUP2 ADD SWAP1 DUP1 DUP1 CALLDATALOAD PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF AND SWAP1 PUSH1 0x20 ADD SWAP1 SWAP3 SWAP2 SWAP1 POP POP POP PUSH2 0x110 JUMP JUMPDEST STOP JUMPDEST PUSH1 0x0 DUP1 SWAP1 SLOAD SWAP1 PUSH2 0x100 EXP SWAP1 DIV PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF AND DUP2 JUMP JUMPDEST PUSH1 0x0 DUP1 SWAP1 SLOAD SWAP1 PUSH2 0x100 EXP SWAP1 DIV PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF AND PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF AND CALLER PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF AND EQ ISZERO ISZERO PUSH2 0x16B JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH1 0x0 PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF AND DUP2 PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF AND EQ ISZERO ISZERO ISZERO PUSH2 0x1A7 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST DUP1 PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF AND PUSH1 0x0 DUP1 SWAP1 SLOAD SWAP1 PUSH2 0x100 EXP SWAP1 DIV PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF AND PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF AND PUSH32 0x8BE0079C531659141344CD1FD0A4F28419497F9722A3DAAFE3B4186F6B6457E0 PUSH1 0x40 MLOAD PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 LOG3 DUP1 PUSH1 0x0 DUP1 PUSH2 0x100 EXP DUP2 SLOAD DUP2 PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF MUL NOT AND SWAP1 DUP4 PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF AND MUL OR SWAP1 SSTORE POP POP JUMP STOP LOG1 PUSH6 0x627A7A723058 KECCAK256 POP PUSH7 0x872BBD04E201CC SELFDESTRUCT 0xbd PUSH23 0xD91CF98D36E0662A88BC31FE6A2A99AB87AE423E002900 ",
+							"sourceMap": "225:824:0:-;;;488:57;8:9:-1;5:2;;;30:1;27;20:12;5:2;488:57:0;529:10;521:5;;:18;;;;;;;;;;;;;;;;;;225:824;;;;;;"
+						},
+						"deployedBytecode": {
+							"linkReferences": {},
+							"object": "60806040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680638da5cb5b14610051578063f2fde38b146100a8575b600080fd5b34801561005d57600080fd5b506100666100eb565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156100b457600080fd5b506100e9600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610110565b005b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561016b57600080fd5b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff16141515156101a757600080fd5b8073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a3806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550505600a165627a7a723058205066872bbd04e201ccffbd76d91cf98d36e0662a88bc31fe6a2a99ab87ae423e0029",
+							"opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE PUSH1 0x4 CALLDATASIZE LT PUSH2 0x4C JUMPI PUSH1 0x0 CALLDATALOAD PUSH29 0x100000000000000000000000000000000000000000000000000000000 SWAP1 DIV PUSH4 0xFFFFFFFF AND DUP1 PUSH4 0x8DA5CB5B EQ PUSH2 0x51 JUMPI DUP1 PUSH4 0xF2FDE38B EQ PUSH2 0xA8 JUMPI JUMPDEST PUSH1 0x0 DUP1 REVERT JUMPDEST CALLVALUE DUP1 ISZERO PUSH2 0x5D JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH2 0x66 PUSH2 0xEB JUMP JUMPDEST PUSH1 0x40 MLOAD DUP1 DUP3 PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF AND PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF AND DUP2 MSTORE PUSH1 0x20 ADD SWAP2 POP POP PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 RETURN JUMPDEST CALLVALUE DUP1 ISZERO PUSH2 0xB4 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH2 0xE9 PUSH1 0x4 DUP1 CALLDATASIZE SUB DUP2 ADD SWAP1 DUP1 DUP1 CALLDATALOAD PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF AND SWAP1 PUSH1 0x20 ADD SWAP1 SWAP3 SWAP2 SWAP1 POP POP POP PUSH2 0x110 JUMP JUMPDEST STOP JUMPDEST PUSH1 0x0 DUP1 SWAP1 SLOAD SWAP1 PUSH2 0x100 EXP SWAP1 DIV PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF AND DUP2 JUMP JUMPDEST PUSH1 0x0 DUP1 SWAP1 SLOAD SWAP1 PUSH2 0x100 EXP SWAP1 DIV PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF AND PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF AND CALLER PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF AND EQ ISZERO ISZERO PUSH2 0x16B JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH1 0x0 PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF AND DUP2 PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF AND EQ ISZERO ISZERO ISZERO PUSH2 0x1A7 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST DUP1 PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF AND PUSH1 0x0 DUP1 SWAP1 SLOAD SWAP1 PUSH2 0x100 EXP SWAP1 DIV PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF AND PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF AND PUSH32 0x8BE0079C531659141344CD1FD0A4F28419497F9722A3DAAFE3B4186F6B6457E0 PUSH1 0x40 MLOAD PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 LOG3 DUP1 PUSH1 0x0 DUP1 PUSH2 0x100 EXP DUP2 SLOAD DUP2 PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF MUL NOT AND SWAP1 DUP4 PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF AND MUL OR SWAP1 SSTORE POP POP JUMP STOP LOG1 PUSH6 0x627A7A723058 KECCAK256 POP PUSH7 0x872BBD04E201CC SELFDESTRUCT 0xbd PUSH23 0xD91CF98D36E0662A88BC31FE6A2A99AB87AE423E002900 ",
+							"sourceMap": "225:824:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;247:20;;8:9:-1;5:2;;;30:1;27;20:12;5:2;247:20:0;;;;;;;;;;;;;;;;;;;;;;;;;;;871:173;;8:9:-1;5:2;;;30:1;27;20:12;5:2;871:173:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;247:20;;;;;;;;;;;;;:::o;871:173::-;682:5;;;;;;;;;;;668:19;;:10;:19;;;660:28;;;;;;;;968:1;948:22;;:8;:22;;;;940:31;;;;;;;;1006:8;978:37;;999:5;;;;;;;;;;;978:37;;;;;;;;;;;;1030:8;1022:5;;:16;;;;;;;;;;;;;;;;;;871:173;:::o"
+						},
+						"gasEstimates": {
+							"creation": {
+								"codeDepositCost": "131400",
+								"executionCost": "20443",
+								"totalCost": "151843"
+							},
+							"external": {
+								"owner()": "442",
+								"transferOwnership(address)": "22587"
+							}
+						},
+						"legacyAssembly": {
+							".code": [
+								{
+									"begin": 225,
+									"end": 1049,
+									"name": "PUSH",
+									"value": "80"
+								},
+								{
+									"begin": 225,
+									"end": 1049,
+									"name": "PUSH",
+									"value": "40"
+								},
+								{
+									"begin": 225,
+									"end": 1049,
+									"name": "MSTORE"
+								},
+								{
+									"begin": 488,
+									"end": 545,
+									"name": "CALLVALUE"
+								},
+								{
+									"begin": 8,
+									"end": 17,
+									"name": "DUP1"
+								},
+								{
+									"begin": 5,
+									"end": 7,
+									"name": "ISZERO"
+								},
+								{
+									"begin": 5,
+									"end": 7,
+									"name": "PUSH [tag]",
+									"value": "1"
+								},
+								{
+									"begin": 5,
+									"end": 7,
+									"name": "JUMPI"
+								},
+								{
+									"begin": 30,
+									"end": 31,
+									"name": "PUSH",
+									"value": "0"
+								},
+								{
+									"begin": 27,
+									"end": 28,
+									"name": "DUP1"
+								},
+								{
+									"begin": 20,
+									"end": 32,
+									"name": "REVERT"
+								},
+								{
+									"begin": 5,
+									"end": 7,
+									"name": "tag",
+									"value": "1"
+								},
+								{
+									"begin": 5,
+									"end": 7,
+									"name": "JUMPDEST"
+								},
+								{
+									"begin": 488,
+									"end": 545,
+									"name": "POP"
+								},
+								{
+									"begin": 529,
+									"end": 539,
+									"name": "CALLER"
+								},
+								{
+									"begin": 521,
+									"end": 526,
+									"name": "PUSH",
+									"value": "0"
+								},
+								{
+									"begin": 521,
+									"end": 526,
+									"name": "DUP1"
+								},
+								{
+									"begin": 521,
+									"end": 539,
+									"name": "PUSH",
+									"value": "100"
+								},
+								{
+									"begin": 521,
+									"end": 539,
+									"name": "EXP"
+								},
+								{
+									"begin": 521,
+									"end": 539,
+									"name": "DUP2"
+								},
+								{
+									"begin": 521,
+									"end": 539,
+									"name": "SLOAD"
+								},
+								{
+									"begin": 521,
+									"end": 539,
+									"name": "DUP2"
+								},
+								{
+									"begin": 521,
+									"end": 539,
+									"name": "PUSH",
+									"value": "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+								},
+								{
+									"begin": 521,
+									"end": 539,
+									"name": "MUL"
+								},
+								{
+									"begin": 521,
+									"end": 539,
+									"name": "NOT"
+								},
+								{
+									"begin": 521,
+									"end": 539,
+									"name": "AND"
+								},
+								{
+									"begin": 521,
+									"end": 539,
+									"name": "SWAP1"
+								},
+								{
+									"begin": 521,
+									"end": 539,
+									"name": "DUP4"
+								},
+								{
+									"begin": 521,
+									"end": 539,
+									"name": "PUSH",
+									"value": "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+								},
+								{
+									"begin": 521,
+									"end": 539,
+									"name": "AND"
+								},
+								{
+									"begin": 521,
+									"end": 539,
+									"name": "MUL"
+								},
+								{
+									"begin": 521,
+									"end": 539,
+									"name": "OR"
+								},
+								{
+									"begin": 521,
+									"end": 539,
+									"name": "SWAP1"
+								},
+								{
+									"begin": 521,
+									"end": 539,
+									"name": "SSTORE"
+								},
+								{
+									"begin": 521,
+									"end": 539,
+									"name": "POP"
+								},
+								{
+									"begin": 225,
+									"end": 1049,
+									"name": "PUSH #[$]",
+									"value": "0000000000000000000000000000000000000000000000000000000000000000"
+								},
+								{
+									"begin": 225,
+									"end": 1049,
+									"name": "DUP1"
+								},
+								{
+									"begin": 225,
+									"end": 1049,
+									"name": "PUSH [$]",
+									"value": "0000000000000000000000000000000000000000000000000000000000000000"
+								},
+								{
+									"begin": 225,
+									"end": 1049,
+									"name": "PUSH",
+									"value": "0"
+								},
+								{
+									"begin": 225,
+									"end": 1049,
+									"name": "CODECOPY"
+								},
+								{
+									"begin": 225,
+									"end": 1049,
+									"name": "PUSH",
+									"value": "0"
+								},
+								{
+									"begin": 225,
+									"end": 1049,
+									"name": "RETURN"
+								}
+							],
+							".data": {
+								"0": {
+									".auxdata": "a165627a7a723058205066872bbd04e201ccffbd76d91cf98d36e0662a88bc31fe6a2a99ab87ae423e0029",
+									".code": [
+										{
+											"begin": 225,
+											"end": 1049,
+											"name": "PUSH",
+											"value": "80"
+										},
+										{
+											"begin": 225,
+											"end": 1049,
+											"name": "PUSH",
+											"value": "40"
+										},
+										{
+											"begin": 225,
+											"end": 1049,
+											"name": "MSTORE"
+										},
+										{
+											"begin": 225,
+											"end": 1049,
+											"name": "PUSH",
+											"value": "4"
+										},
+										{
+											"begin": 225,
+											"end": 1049,
+											"name": "CALLDATASIZE"
+										},
+										{
+											"begin": 225,
+											"end": 1049,
+											"name": "LT"
+										},
+										{
+											"begin": 225,
+											"end": 1049,
+											"name": "PUSH [tag]",
+											"value": "1"
+										},
+										{
+											"begin": 225,
+											"end": 1049,
+											"name": "JUMPI"
+										},
+										{
+											"begin": 225,
+											"end": 1049,
+											"name": "PUSH",
+											"value": "0"
+										},
+										{
+											"begin": 225,
+											"end": 1049,
+											"name": "CALLDATALOAD"
+										},
+										{
+											"begin": 225,
+											"end": 1049,
+											"name": "PUSH",
+											"value": "100000000000000000000000000000000000000000000000000000000"
+										},
+										{
+											"begin": 225,
+											"end": 1049,
+											"name": "SWAP1"
+										},
+										{
+											"begin": 225,
+											"end": 1049,
+											"name": "DIV"
+										},
+										{
+											"begin": 225,
+											"end": 1049,
+											"name": "PUSH",
+											"value": "FFFFFFFF"
+										},
+										{
+											"begin": 225,
+											"end": 1049,
+											"name": "AND"
+										},
+										{
+											"begin": 225,
+											"end": 1049,
+											"name": "DUP1"
+										},
+										{
+											"begin": 225,
+											"end": 1049,
+											"name": "PUSH",
+											"value": "8DA5CB5B"
+										},
+										{
+											"begin": 225,
+											"end": 1049,
+											"name": "EQ"
+										},
+										{
+											"begin": 225,
+											"end": 1049,
+											"name": "PUSH [tag]",
+											"value": "2"
+										},
+										{
+											"begin": 225,
+											"end": 1049,
+											"name": "JUMPI"
+										},
+										{
+											"begin": 225,
+											"end": 1049,
+											"name": "DUP1"
+										},
+										{
+											"begin": 225,
+											"end": 1049,
+											"name": "PUSH",
+											"value": "F2FDE38B"
+										},
+										{
+											"begin": 225,
+											"end": 1049,
+											"name": "EQ"
+										},
+										{
+											"begin": 225,
+											"end": 1049,
+											"name": "PUSH [tag]",
+											"value": "3"
+										},
+										{
+											"begin": 225,
+											"end": 1049,
+											"name": "JUMPI"
+										},
+										{
+											"begin": 225,
+											"end": 1049,
+											"name": "tag",
+											"value": "1"
+										},
+										{
+											"begin": 225,
+											"end": 1049,
+											"name": "JUMPDEST"
+										},
+										{
+											"begin": 225,
+											"end": 1049,
+											"name": "PUSH",
+											"value": "0"
+										},
+										{
+											"begin": 225,
+											"end": 1049,
+											"name": "DUP1"
+										},
+										{
+											"begin": 225,
+											"end": 1049,
+											"name": "REVERT"
+										},
+										{
+											"begin": 247,
+											"end": 267,
+											"name": "tag",
+											"value": "2"
+										},
+										{
+											"begin": 247,
+											"end": 267,
+											"name": "JUMPDEST"
+										},
+										{
+											"begin": 247,
+											"end": 267,
+											"name": "CALLVALUE"
+										},
+										{
+											"begin": 8,
+											"end": 17,
+											"name": "DUP1"
+										},
+										{
+											"begin": 5,
+											"end": 7,
+											"name": "ISZERO"
+										},
+										{
+											"begin": 5,
+											"end": 7,
+											"name": "PUSH [tag]",
+											"value": "4"
+										},
+										{
+											"begin": 5,
+											"end": 7,
+											"name": "JUMPI"
+										},
+										{
+											"begin": 30,
+											"end": 31,
+											"name": "PUSH",
+											"value": "0"
+										},
+										{
+											"begin": 27,
+											"end": 28,
+											"name": "DUP1"
+										},
+										{
+											"begin": 20,
+											"end": 32,
+											"name": "REVERT"
+										},
+										{
+											"begin": 5,
+											"end": 7,
+											"name": "tag",
+											"value": "4"
+										},
+										{
+											"begin": 5,
+											"end": 7,
+											"name": "JUMPDEST"
+										},
+										{
+											"begin": 247,
+											"end": 267,
+											"name": "POP"
+										},
+										{
+											"begin": 247,
+											"end": 267,
+											"name": "PUSH [tag]",
+											"value": "5"
+										},
+										{
+											"begin": 247,
+											"end": 267,
+											"name": "PUSH [tag]",
+											"value": "6"
+										},
+										{
+											"begin": 247,
+											"end": 267,
+											"name": "JUMP"
+										},
+										{
+											"begin": 247,
+											"end": 267,
+											"name": "tag",
+											"value": "5"
+										},
+										{
+											"begin": 247,
+											"end": 267,
+											"name": "JUMPDEST"
+										},
+										{
+											"begin": 247,
+											"end": 267,
+											"name": "PUSH",
+											"value": "40"
+										},
+										{
+											"begin": 247,
+											"end": 267,
+											"name": "MLOAD"
+										},
+										{
+											"begin": 247,
+											"end": 267,
+											"name": "DUP1"
+										},
+										{
+											"begin": 247,
+											"end": 267,
+											"name": "DUP3"
+										},
+										{
+											"begin": 247,
+											"end": 267,
+											"name": "PUSH",
+											"value": "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+										},
+										{
+											"begin": 247,
+											"end": 267,
+											"name": "AND"
+										},
+										{
+											"begin": 247,
+											"end": 267,
+											"name": "PUSH",
+											"value": "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+										},
+										{
+											"begin": 247,
+											"end": 267,
+											"name": "AND"
+										},
+										{
+											"begin": 247,
+											"end": 267,
+											"name": "DUP2"
+										},
+										{
+											"begin": 247,
+											"end": 267,
+											"name": "MSTORE"
+										},
+										{
+											"begin": 247,
+											"end": 267,
+											"name": "PUSH",
+											"value": "20"
+										},
+										{
+											"begin": 247,
+											"end": 267,
+											"name": "ADD"
+										},
+										{
+											"begin": 247,
+											"end": 267,
+											"name": "SWAP2"
+										},
+										{
+											"begin": 247,
+											"end": 267,
+											"name": "POP"
+										},
+										{
+											"begin": 247,
+											"end": 267,
+											"name": "POP"
+										},
+										{
+											"begin": 247,
+											"end": 267,
+											"name": "PUSH",
+											"value": "40"
+										},
+										{
+											"begin": 247,
+											"end": 267,
+											"name": "MLOAD"
+										},
+										{
+											"begin": 247,
+											"end": 267,
+											"name": "DUP1"
+										},
+										{
+											"begin": 247,
+											"end": 267,
+											"name": "SWAP2"
+										},
+										{
+											"begin": 247,
+											"end": 267,
+											"name": "SUB"
+										},
+										{
+											"begin": 247,
+											"end": 267,
+											"name": "SWAP1"
+										},
+										{
+											"begin": 247,
+											"end": 267,
+											"name": "RETURN"
+										},
+										{
+											"begin": 871,
+											"end": 1044,
+											"name": "tag",
+											"value": "3"
+										},
+										{
+											"begin": 871,
+											"end": 1044,
+											"name": "JUMPDEST"
+										},
+										{
+											"begin": 871,
+											"end": 1044,
+											"name": "CALLVALUE"
+										},
+										{
+											"begin": 8,
+											"end": 17,
+											"name": "DUP1"
+										},
+										{
+											"begin": 5,
+											"end": 7,
+											"name": "ISZERO"
+										},
+										{
+											"begin": 5,
+											"end": 7,
+											"name": "PUSH [tag]",
+											"value": "7"
+										},
+										{
+											"begin": 5,
+											"end": 7,
+											"name": "JUMPI"
+										},
+										{
+											"begin": 30,
+											"end": 31,
+											"name": "PUSH",
+											"value": "0"
+										},
+										{
+											"begin": 27,
+											"end": 28,
+											"name": "DUP1"
+										},
+										{
+											"begin": 20,
+											"end": 32,
+											"name": "REVERT"
+										},
+										{
+											"begin": 5,
+											"end": 7,
+											"name": "tag",
+											"value": "7"
+										},
+										{
+											"begin": 5,
+											"end": 7,
+											"name": "JUMPDEST"
+										},
+										{
+											"begin": 871,
+											"end": 1044,
+											"name": "POP"
+										},
+										{
+											"begin": 871,
+											"end": 1044,
+											"name": "PUSH [tag]",
+											"value": "8"
+										},
+										{
+											"begin": 871,
+											"end": 1044,
+											"name": "PUSH",
+											"value": "4"
+										},
+										{
+											"begin": 871,
+											"end": 1044,
+											"name": "DUP1"
+										},
+										{
+											"begin": 871,
+											"end": 1044,
+											"name": "CALLDATASIZE"
+										},
+										{
+											"begin": 871,
+											"end": 1044,
+											"name": "SUB"
+										},
+										{
+											"begin": 871,
+											"end": 1044,
+											"name": "DUP2"
+										},
+										{
+											"begin": 871,
+											"end": 1044,
+											"name": "ADD"
+										},
+										{
+											"begin": 871,
+											"end": 1044,
+											"name": "SWAP1"
+										},
+										{
+											"begin": 871,
+											"end": 1044,
+											"name": "DUP1"
+										},
+										{
+											"begin": 871,
+											"end": 1044,
+											"name": "DUP1"
+										},
+										{
+											"begin": 871,
+											"end": 1044,
+											"name": "CALLDATALOAD"
+										},
+										{
+											"begin": 871,
+											"end": 1044,
+											"name": "PUSH",
+											"value": "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+										},
+										{
+											"begin": 871,
+											"end": 1044,
+											"name": "AND"
+										},
+										{
+											"begin": 871,
+											"end": 1044,
+											"name": "SWAP1"
+										},
+										{
+											"begin": 871,
+											"end": 1044,
+											"name": "PUSH",
+											"value": "20"
+										},
+										{
+											"begin": 871,
+											"end": 1044,
+											"name": "ADD"
+										},
+										{
+											"begin": 871,
+											"end": 1044,
+											"name": "SWAP1"
+										},
+										{
+											"begin": 871,
+											"end": 1044,
+											"name": "SWAP3"
+										},
+										{
+											"begin": 871,
+											"end": 1044,
+											"name": "SWAP2"
+										},
+										{
+											"begin": 871,
+											"end": 1044,
+											"name": "SWAP1"
+										},
+										{
+											"begin": 871,
+											"end": 1044,
+											"name": "POP"
+										},
+										{
+											"begin": 871,
+											"end": 1044,
+											"name": "POP"
+										},
+										{
+											"begin": 871,
+											"end": 1044,
+											"name": "POP"
+										},
+										{
+											"begin": 871,
+											"end": 1044,
+											"name": "PUSH [tag]",
+											"value": "9"
+										},
+										{
+											"begin": 871,
+											"end": 1044,
+											"name": "JUMP"
+										},
+										{
+											"begin": 871,
+											"end": 1044,
+											"name": "tag",
+											"value": "8"
+										},
+										{
+											"begin": 871,
+											"end": 1044,
+											"name": "JUMPDEST"
+										},
+										{
+											"begin": 871,
+											"end": 1044,
+											"name": "STOP"
+										},
+										{
+											"begin": 247,
+											"end": 267,
+											"name": "tag",
+											"value": "6"
+										},
+										{
+											"begin": 247,
+											"end": 267,
+											"name": "JUMPDEST"
+										},
+										{
+											"begin": 247,
+											"end": 267,
+											"name": "PUSH",
+											"value": "0"
+										},
+										{
+											"begin": 247,
+											"end": 267,
+											"name": "DUP1"
+										},
+										{
+											"begin": 247,
+											"end": 267,
+											"name": "SWAP1"
+										},
+										{
+											"begin": 247,
+											"end": 267,
+											"name": "SLOAD"
+										},
+										{
+											"begin": 247,
+											"end": 267,
+											"name": "SWAP1"
+										},
+										{
+											"begin": 247,
+											"end": 267,
+											"name": "PUSH",
+											"value": "100"
+										},
+										{
+											"begin": 247,
+											"end": 267,
+											"name": "EXP"
+										},
+										{
+											"begin": 247,
+											"end": 267,
+											"name": "SWAP1"
+										},
+										{
+											"begin": 247,
+											"end": 267,
+											"name": "DIV"
+										},
+										{
+											"begin": 247,
+											"end": 267,
+											"name": "PUSH",
+											"value": "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+										},
+										{
+											"begin": 247,
+											"end": 267,
+											"name": "AND"
+										},
+										{
+											"begin": 247,
+											"end": 267,
+											"name": "DUP2"
+										},
+										{
+											"begin": 247,
+											"end": 267,
+											"name": "JUMP",
+											"value": "[out]"
+										},
+										{
+											"begin": 871,
+											"end": 1044,
+											"name": "tag",
+											"value": "9"
+										},
+										{
+											"begin": 871,
+											"end": 1044,
+											"name": "JUMPDEST"
+										},
+										{
+											"begin": 682,
+											"end": 687,
+											"name": "PUSH",
+											"value": "0"
+										},
+										{
+											"begin": 682,
+											"end": 687,
+											"name": "DUP1"
+										},
+										{
+											"begin": 682,
+											"end": 687,
+											"name": "SWAP1"
+										},
+										{
+											"begin": 682,
+											"end": 687,
+											"name": "SLOAD"
+										},
+										{
+											"begin": 682,
+											"end": 687,
+											"name": "SWAP1"
+										},
+										{
+											"begin": 682,
+											"end": 687,
+											"name": "PUSH",
+											"value": "100"
+										},
+										{
+											"begin": 682,
+											"end": 687,
+											"name": "EXP"
+										},
+										{
+											"begin": 682,
+											"end": 687,
+											"name": "SWAP1"
+										},
+										{
+											"begin": 682,
+											"end": 687,
+											"name": "DIV"
+										},
+										{
+											"begin": 682,
+											"end": 687,
+											"name": "PUSH",
+											"value": "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+										},
+										{
+											"begin": 682,
+											"end": 687,
+											"name": "AND"
+										},
+										{
+											"begin": 668,
+											"end": 687,
+											"name": "PUSH",
+											"value": "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+										},
+										{
+											"begin": 668,
+											"end": 687,
+											"name": "AND"
+										},
+										{
+											"begin": 668,
+											"end": 678,
+											"name": "CALLER"
+										},
+										{
+											"begin": 668,
+											"end": 687,
+											"name": "PUSH",
+											"value": "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+										},
+										{
+											"begin": 668,
+											"end": 687,
+											"name": "AND"
+										},
+										{
+											"begin": 668,
+											"end": 687,
+											"name": "EQ"
+										},
+										{
+											"begin": 660,
+											"end": 688,
+											"name": "ISZERO"
+										},
+										{
+											"begin": 660,
+											"end": 688,
+											"name": "ISZERO"
+										},
+										{
+											"begin": 660,
+											"end": 688,
+											"name": "PUSH [tag]",
+											"value": "11"
+										},
+										{
+											"begin": 660,
+											"end": 688,
+											"name": "JUMPI"
+										},
+										{
+											"begin": 660,
+											"end": 688,
+											"name": "PUSH",
+											"value": "0"
+										},
+										{
+											"begin": 660,
+											"end": 688,
+											"name": "DUP1"
+										},
+										{
+											"begin": 660,
+											"end": 688,
+											"name": "REVERT"
+										},
+										{
+											"begin": 660,
+											"end": 688,
+											"name": "tag",
+											"value": "11"
+										},
+										{
+											"begin": 660,
+											"end": 688,
+											"name": "JUMPDEST"
+										},
+										{
+											"begin": 968,
+											"end": 969,
+											"name": "PUSH",
+											"value": "0"
+										},
+										{
+											"begin": 948,
+											"end": 970,
+											"name": "PUSH",
+											"value": "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+										},
+										{
+											"begin": 948,
+											"end": 970,
+											"name": "AND"
+										},
+										{
+											"begin": 948,
+											"end": 956,
+											"name": "DUP2"
+										},
+										{
+											"begin": 948,
+											"end": 970,
+											"name": "PUSH",
+											"value": "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+										},
+										{
+											"begin": 948,
+											"end": 970,
+											"name": "AND"
+										},
+										{
+											"begin": 948,
+											"end": 970,
+											"name": "EQ"
+										},
+										{
+											"begin": 948,
+											"end": 970,
+											"name": "ISZERO"
+										},
+										{
+											"begin": 940,
+											"end": 971,
+											"name": "ISZERO"
+										},
+										{
+											"begin": 940,
+											"end": 971,
+											"name": "ISZERO"
+										},
+										{
+											"begin": 940,
+											"end": 971,
+											"name": "PUSH [tag]",
+											"value": "13"
+										},
+										{
+											"begin": 940,
+											"end": 971,
+											"name": "JUMPI"
+										},
+										{
+											"begin": 940,
+											"end": 971,
+											"name": "PUSH",
+											"value": "0"
+										},
+										{
+											"begin": 940,
+											"end": 971,
+											"name": "DUP1"
+										},
+										{
+											"begin": 940,
+											"end": 971,
+											"name": "REVERT"
+										},
+										{
+											"begin": 940,
+											"end": 971,
+											"name": "tag",
+											"value": "13"
+										},
+										{
+											"begin": 940,
+											"end": 971,
+											"name": "JUMPDEST"
+										},
+										{
+											"begin": 1006,
+											"end": 1014,
+											"name": "DUP1"
+										},
+										{
+											"begin": 978,
+											"end": 1015,
+											"name": "PUSH",
+											"value": "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+										},
+										{
+											"begin": 978,
+											"end": 1015,
+											"name": "AND"
+										},
+										{
+											"begin": 999,
+											"end": 1004,
+											"name": "PUSH",
+											"value": "0"
+										},
+										{
+											"begin": 999,
+											"end": 1004,
+											"name": "DUP1"
+										},
+										{
+											"begin": 999,
+											"end": 1004,
+											"name": "SWAP1"
+										},
+										{
+											"begin": 999,
+											"end": 1004,
+											"name": "SLOAD"
+										},
+										{
+											"begin": 999,
+											"end": 1004,
+											"name": "SWAP1"
+										},
+										{
+											"begin": 999,
+											"end": 1004,
+											"name": "PUSH",
+											"value": "100"
+										},
+										{
+											"begin": 999,
+											"end": 1004,
+											"name": "EXP"
+										},
+										{
+											"begin": 999,
+											"end": 1004,
+											"name": "SWAP1"
+										},
+										{
+											"begin": 999,
+											"end": 1004,
+											"name": "DIV"
+										},
+										{
+											"begin": 999,
+											"end": 1004,
+											"name": "PUSH",
+											"value": "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+										},
+										{
+											"begin": 999,
+											"end": 1004,
+											"name": "AND"
+										},
+										{
+											"begin": 978,
+											"end": 1015,
+											"name": "PUSH",
+											"value": "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+										},
+										{
+											"begin": 978,
+											"end": 1015,
+											"name": "AND"
+										},
+										{
+											"begin": 978,
+											"end": 1015,
+											"name": "PUSH",
+											"value": "8BE0079C531659141344CD1FD0A4F28419497F9722A3DAAFE3B4186F6B6457E0"
+										},
+										{
+											"begin": 978,
+											"end": 1015,
+											"name": "PUSH",
+											"value": "40"
+										},
+										{
+											"begin": 978,
+											"end": 1015,
+											"name": "MLOAD"
+										},
+										{
+											"begin": 978,
+											"end": 1015,
+											"name": "PUSH",
+											"value": "40"
+										},
+										{
+											"begin": 978,
+											"end": 1015,
+											"name": "MLOAD"
+										},
+										{
+											"begin": 978,
+											"end": 1015,
+											"name": "DUP1"
+										},
+										{
+											"begin": 978,
+											"end": 1015,
+											"name": "SWAP2"
+										},
+										{
+											"begin": 978,
+											"end": 1015,
+											"name": "SUB"
+										},
+										{
+											"begin": 978,
+											"end": 1015,
+											"name": "SWAP1"
+										},
+										{
+											"begin": 978,
+											"end": 1015,
+											"name": "LOG3"
+										},
+										{
+											"begin": 1030,
+											"end": 1038,
+											"name": "DUP1"
+										},
+										{
+											"begin": 1022,
+											"end": 1027,
+											"name": "PUSH",
+											"value": "0"
+										},
+										{
+											"begin": 1022,
+											"end": 1027,
+											"name": "DUP1"
+										},
+										{
+											"begin": 1022,
+											"end": 1038,
+											"name": "PUSH",
+											"value": "100"
+										},
+										{
+											"begin": 1022,
+											"end": 1038,
+											"name": "EXP"
+										},
+										{
+											"begin": 1022,
+											"end": 1038,
+											"name": "DUP2"
+										},
+										{
+											"begin": 1022,
+											"end": 1038,
+											"name": "SLOAD"
+										},
+										{
+											"begin": 1022,
+											"end": 1038,
+											"name": "DUP2"
+										},
+										{
+											"begin": 1022,
+											"end": 1038,
+											"name": "PUSH",
+											"value": "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+										},
+										{
+											"begin": 1022,
+											"end": 1038,
+											"name": "MUL"
+										},
+										{
+											"begin": 1022,
+											"end": 1038,
+											"name": "NOT"
+										},
+										{
+											"begin": 1022,
+											"end": 1038,
+											"name": "AND"
+										},
+										{
+											"begin": 1022,
+											"end": 1038,
+											"name": "SWAP1"
+										},
+										{
+											"begin": 1022,
+											"end": 1038,
+											"name": "DUP4"
+										},
+										{
+											"begin": 1022,
+											"end": 1038,
+											"name": "PUSH",
+											"value": "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+										},
+										{
+											"begin": 1022,
+											"end": 1038,
+											"name": "AND"
+										},
+										{
+											"begin": 1022,
+											"end": 1038,
+											"name": "MUL"
+										},
+										{
+											"begin": 1022,
+											"end": 1038,
+											"name": "OR"
+										},
+										{
+											"begin": 1022,
+											"end": 1038,
+											"name": "SWAP1"
+										},
+										{
+											"begin": 1022,
+											"end": 1038,
+											"name": "SSTORE"
+										},
+										{
+											"begin": 1022,
+											"end": 1038,
+											"name": "POP"
+										},
+										{
+											"begin": 871,
+											"end": 1044,
+											"name": "POP"
+										},
+										{
+											"begin": 871,
+											"end": 1044,
+											"name": "JUMP",
+											"value": "[out]"
+										}
+									]
+								}
+							}
+						},
+						"methodIdentifiers": {
+							"owner()": "8da5cb5b",
+							"transferOwnership(address)": "f2fde38b"
+						}
+					},
+					"metadata": "{\"compiler\":{\"version\":\"0.4.26+commit.4563c3fc\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"}],\"devdoc\":{\"methods\":{\"transferOwnership(address)\":{\"details\":\"Allows the current owner to transfer control of the contract to a newOwner.\\r\",\"params\":{\"newOwner\":\"The address to transfer ownership to.\\r\"}}},\"title\":\"Ownable\\r\"},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"contracts/Ownable.sol\":\"Ownable\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/Ownable.sol\":{\"keccak256\":\"0x0e6f15f321059878cfb933d4a2dfa2abdd712861166e24a2a8881272e6eebd88\",\"urls\":[\"bzzr://8bfed6ff3b8f9a757266f59b83401fa5b1839743eadde7ace9251d2ea294acd2\"]}},\"version\":1}",
+					"userdoc": {
+						"methods": {}
+					}
+				}
+			}
+		},
+		"errors": [
+			{
+				"component": "general",
+				"formattedMessage": "contracts/Ownable.sol:20:3: Warning: Defining constructors as functions with the same name as the contract is deprecated. Use \"constructor(...) { ... }\" instead.\n  function Ownable() public {\r\n  ^ (Relevant source part starts here and spans across multiple lines).\n",
+				"message": "Defining constructors as functions with the same name as the contract is deprecated. Use \"constructor(...) { ... }\" instead.",
+				"severity": "warning",
+				"sourceLocation": {
+					"end": 545,
+					"file": "contracts/Ownable.sol",
+					"start": 488
+				},
+				"type": "Warning"
+			},
+			{
+				"component": "general",
+				"formattedMessage": "contracts/Ownable.sol:40:5: Warning: Invoking events without \"emit\" prefix is deprecated.\n    OwnershipTransferred(owner, newOwner);\r\n    ^-----------------------------------^\n",
+				"message": "Invoking events without \"emit\" prefix is deprecated.",
+				"severity": "warning",
+				"sourceLocation": {
+					"end": 1015,
+					"file": "contracts/Ownable.sol",
+					"start": 978
+				},
+				"type": "Warning"
+			}
+		],
+		"sources": {
+			"contracts/Ownable.sol": {
+				"ast": {
+					"absolutePath": "contracts/Ownable.sol",
+					"exportedSymbols": {
+						"Ownable": [
+							55
+						]
+					},
+					"id": 56,
+					"nodeType": "SourceUnit",
+					"nodes": [
+						{
+							"id": 1,
+							"literals": [
+								"solidity",
+								"^",
+								"0.4",
+								".18"
+							],
+							"nodeType": "PragmaDirective",
+							"src": "0:24:0"
+						},
+						{
+							"baseContracts": [],
+							"contractDependencies": [],
+							"contractKind": "contract",
+							"documentation": "@title Ownable\r\n@dev The Ownable contract has an owner address, and provides basic authorization control\r\nfunctions, this simplifies the implementation of \"user permissions\".\r",
+							"fullyImplemented": true,
+							"id": 55,
+							"linearizedBaseContracts": [
+								55
+							],
+							"name": "Ownable",
+							"nodeType": "ContractDefinition",
+							"nodes": [
+								{
+									"constant": false,
+									"id": 3,
+									"name": "owner",
+									"nodeType": "VariableDeclaration",
+									"scope": 55,
+									"src": "247:20:0",
+									"stateVariable": true,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_address",
+										"typeString": "address"
+									},
+									"typeName": {
+										"id": 2,
+										"name": "address",
+										"nodeType": "ElementaryTypeName",
+										"src": "247:7:0",
+										"typeDescriptions": {
+											"typeIdentifier": "t_address",
+											"typeString": "address"
+										}
+									},
+									"value": null,
+									"visibility": "public"
+								},
+								{
+									"anonymous": false,
+									"documentation": null,
+									"id": 9,
+									"name": "OwnershipTransferred",
+									"nodeType": "EventDefinition",
+									"parameters": {
+										"id": 8,
+										"nodeType": "ParameterList",
+										"parameters": [
+											{
+												"constant": false,
+												"id": 5,
+												"indexed": true,
+												"name": "previousOwner",
+												"nodeType": "VariableDeclaration",
+												"scope": 9,
+												"src": "303:29:0",
+												"stateVariable": false,
+												"storageLocation": "default",
+												"typeDescriptions": {
+													"typeIdentifier": "t_address",
+													"typeString": "address"
+												},
+												"typeName": {
+													"id": 4,
+													"name": "address",
+													"nodeType": "ElementaryTypeName",
+													"src": "303:7:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_address",
+														"typeString": "address"
+													}
+												},
+												"value": null,
+												"visibility": "internal"
+											},
+											{
+												"constant": false,
+												"id": 7,
+												"indexed": true,
+												"name": "newOwner",
+												"nodeType": "VariableDeclaration",
+												"scope": 9,
+												"src": "334:24:0",
+												"stateVariable": false,
+												"storageLocation": "default",
+												"typeDescriptions": {
+													"typeIdentifier": "t_address",
+													"typeString": "address"
+												},
+												"typeName": {
+													"id": 6,
+													"name": "address",
+													"nodeType": "ElementaryTypeName",
+													"src": "334:7:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_address",
+														"typeString": "address"
+													}
+												},
+												"value": null,
+												"visibility": "internal"
+											}
+										],
+										"src": "302:57:0"
+									},
+									"src": "276:84:0"
+								},
+								{
+									"body": {
+										"id": 17,
+										"nodeType": "Block",
+										"src": "514:31:0",
+										"statements": [
+											{
+												"expression": {
+													"argumentTypes": null,
+													"id": 15,
+													"isConstant": false,
+													"isLValue": false,
+													"isPure": false,
+													"lValueRequested": false,
+													"leftHandSide": {
+														"argumentTypes": null,
+														"id": 12,
+														"name": "owner",
+														"nodeType": "Identifier",
+														"overloadedDeclarations": [],
+														"referencedDeclaration": 3,
+														"src": "521:5:0",
+														"typeDescriptions": {
+															"typeIdentifier": "t_address",
+															"typeString": "address"
+														}
+													},
+													"nodeType": "Assignment",
+													"operator": "=",
+													"rightHandSide": {
+														"argumentTypes": null,
+														"expression": {
+															"argumentTypes": null,
+															"id": 13,
+															"name": "msg",
+															"nodeType": "Identifier",
+															"overloadedDeclarations": [],
+															"referencedDeclaration": 70,
+															"src": "529:3:0",
+															"typeDescriptions": {
+																"typeIdentifier": "t_magic_message",
+																"typeString": "msg"
+															}
+														},
+														"id": 14,
+														"isConstant": false,
+														"isLValue": false,
+														"isPure": false,
+														"lValueRequested": false,
+														"memberName": "sender",
+														"nodeType": "MemberAccess",
+														"referencedDeclaration": null,
+														"src": "529:10:0",
+														"typeDescriptions": {
+															"typeIdentifier": "t_address",
+															"typeString": "address"
+														}
+													},
+													"src": "521:18:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_address",
+														"typeString": "address"
+													}
+												},
+												"id": 16,
+												"nodeType": "ExpressionStatement",
+												"src": "521:18:0"
+											}
+										]
+									},
+									"documentation": "@dev The Ownable constructor sets the original `owner` of the contract to the sender\r\naccount.\r",
+									"id": 18,
+									"implemented": true,
+									"isConstructor": true,
+									"isDeclaredConst": false,
+									"modifiers": [],
+									"name": "Ownable",
+									"nodeType": "FunctionDefinition",
+									"parameters": {
+										"id": 10,
+										"nodeType": "ParameterList",
+										"parameters": [],
+										"src": "504:2:0"
+									},
+									"payable": false,
+									"returnParameters": {
+										"id": 11,
+										"nodeType": "ParameterList",
+										"parameters": [],
+										"src": "514:0:0"
+									},
+									"scope": 55,
+									"src": "488:57:0",
+									"stateMutability": "nonpayable",
+									"superFunction": null,
+									"visibility": "public"
+								},
+								{
+									"body": {
+										"id": 28,
+										"nodeType": "Block",
+										"src": "653:49:0",
+										"statements": [
+											{
+												"expression": {
+													"argumentTypes": null,
+													"arguments": [
+														{
+															"argumentTypes": null,
+															"commonType": {
+																"typeIdentifier": "t_address",
+																"typeString": "address"
+															},
+															"id": 24,
+															"isConstant": false,
+															"isLValue": false,
+															"isPure": false,
+															"lValueRequested": false,
+															"leftExpression": {
+																"argumentTypes": null,
+																"expression": {
+																	"argumentTypes": null,
+																	"id": 21,
+																	"name": "msg",
+																	"nodeType": "Identifier",
+																	"overloadedDeclarations": [],
+																	"referencedDeclaration": 70,
+																	"src": "668:3:0",
+																	"typeDescriptions": {
+																		"typeIdentifier": "t_magic_message",
+																		"typeString": "msg"
+																	}
+																},
+																"id": 22,
+																"isConstant": false,
+																"isLValue": false,
+																"isPure": false,
+																"lValueRequested": false,
+																"memberName": "sender",
+																"nodeType": "MemberAccess",
+																"referencedDeclaration": null,
+																"src": "668:10:0",
+																"typeDescriptions": {
+																	"typeIdentifier": "t_address",
+																	"typeString": "address"
+																}
+															},
+															"nodeType": "BinaryOperation",
+															"operator": "==",
+															"rightExpression": {
+																"argumentTypes": null,
+																"id": 23,
+																"name": "owner",
+																"nodeType": "Identifier",
+																"overloadedDeclarations": [],
+																"referencedDeclaration": 3,
+																"src": "682:5:0",
+																"typeDescriptions": {
+																	"typeIdentifier": "t_address",
+																	"typeString": "address"
+																}
+															},
+															"src": "668:19:0",
+															"typeDescriptions": {
+																"typeIdentifier": "t_bool",
+																"typeString": "bool"
+															}
+														}
+													],
+													"expression": {
+														"argumentTypes": [
+															{
+																"typeIdentifier": "t_bool",
+																"typeString": "bool"
+															}
+														],
+														"id": 20,
+														"name": "require",
+														"nodeType": "Identifier",
+														"overloadedDeclarations": [
+															73,
+															74
+														],
+														"referencedDeclaration": 73,
+														"src": "660:7:0",
+														"typeDescriptions": {
+															"typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+															"typeString": "function (bool) pure"
+														}
+													},
+													"id": 25,
+													"isConstant": false,
+													"isLValue": false,
+													"isPure": false,
+													"kind": "functionCall",
+													"lValueRequested": false,
+													"names": [],
+													"nodeType": "FunctionCall",
+													"src": "660:28:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_tuple$__$",
+														"typeString": "tuple()"
+													}
+												},
+												"id": 26,
+												"nodeType": "ExpressionStatement",
+												"src": "660:28:0"
+											},
+											{
+												"id": 27,
+												"nodeType": "PlaceholderStatement",
+												"src": "695:1:0"
+											}
+										]
+									},
+									"documentation": "@dev Throws if called by any account other than the owner.\r",
+									"id": 29,
+									"name": "onlyOwner",
+									"nodeType": "ModifierDefinition",
+									"parameters": {
+										"id": 19,
+										"nodeType": "ParameterList",
+										"parameters": [],
+										"src": "650:2:0"
+									},
+									"src": "632:70:0",
+									"visibility": "internal"
+								},
+								{
+									"body": {
+										"id": 53,
+										"nodeType": "Block",
+										"src": "933:111:0",
+										"statements": [
+											{
+												"expression": {
+													"argumentTypes": null,
+													"arguments": [
+														{
+															"argumentTypes": null,
+															"commonType": {
+																"typeIdentifier": "t_address",
+																"typeString": "address"
+															},
+															"id": 41,
+															"isConstant": false,
+															"isLValue": false,
+															"isPure": false,
+															"lValueRequested": false,
+															"leftExpression": {
+																"argumentTypes": null,
+																"id": 37,
+																"name": "newOwner",
+																"nodeType": "Identifier",
+																"overloadedDeclarations": [],
+																"referencedDeclaration": 31,
+																"src": "948:8:0",
+																"typeDescriptions": {
+																	"typeIdentifier": "t_address",
+																	"typeString": "address"
+																}
+															},
+															"nodeType": "BinaryOperation",
+															"operator": "!=",
+															"rightExpression": {
+																"argumentTypes": null,
+																"arguments": [
+																	{
+																		"argumentTypes": null,
+																		"hexValue": "30",
+																		"id": 39,
+																		"isConstant": false,
+																		"isLValue": false,
+																		"isPure": true,
+																		"kind": "number",
+																		"lValueRequested": false,
+																		"nodeType": "Literal",
+																		"src": "968:1:0",
+																		"subdenomination": null,
+																		"typeDescriptions": {
+																			"typeIdentifier": "t_rational_0_by_1",
+																			"typeString": "int_const 0"
+																		},
+																		"value": "0"
+																	}
+																],
+																"expression": {
+																	"argumentTypes": [
+																		{
+																			"typeIdentifier": "t_rational_0_by_1",
+																			"typeString": "int_const 0"
+																		}
+																	],
+																	"id": 38,
+																	"isConstant": false,
+																	"isLValue": false,
+																	"isPure": true,
+																	"lValueRequested": false,
+																	"nodeType": "ElementaryTypeNameExpression",
+																	"src": "960:7:0",
+																	"typeDescriptions": {
+																		"typeIdentifier": "t_type$_t_address_$",
+																		"typeString": "type(address)"
+																	},
+																	"typeName": "address"
+																},
+																"id": 40,
+																"isConstant": false,
+																"isLValue": false,
+																"isPure": true,
+																"kind": "typeConversion",
+																"lValueRequested": false,
+																"names": [],
+																"nodeType": "FunctionCall",
+																"src": "960:10:0",
+																"typeDescriptions": {
+																	"typeIdentifier": "t_address",
+																	"typeString": "address"
+																}
+															},
+															"src": "948:22:0",
+															"typeDescriptions": {
+																"typeIdentifier": "t_bool",
+																"typeString": "bool"
+															}
+														}
+													],
+													"expression": {
+														"argumentTypes": [
+															{
+																"typeIdentifier": "t_bool",
+																"typeString": "bool"
+															}
+														],
+														"id": 36,
+														"name": "require",
+														"nodeType": "Identifier",
+														"overloadedDeclarations": [
+															73,
+															74
+														],
+														"referencedDeclaration": 73,
+														"src": "940:7:0",
+														"typeDescriptions": {
+															"typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+															"typeString": "function (bool) pure"
+														}
+													},
+													"id": 42,
+													"isConstant": false,
+													"isLValue": false,
+													"isPure": false,
+													"kind": "functionCall",
+													"lValueRequested": false,
+													"names": [],
+													"nodeType": "FunctionCall",
+													"src": "940:31:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_tuple$__$",
+														"typeString": "tuple()"
+													}
+												},
+												"id": 43,
+												"nodeType": "ExpressionStatement",
+												"src": "940:31:0"
+											},
+											{
+												"expression": {
+													"argumentTypes": null,
+													"arguments": [
+														{
+															"argumentTypes": null,
+															"id": 45,
+															"name": "owner",
+															"nodeType": "Identifier",
+															"overloadedDeclarations": [],
+															"referencedDeclaration": 3,
+															"src": "999:5:0",
+															"typeDescriptions": {
+																"typeIdentifier": "t_address",
+																"typeString": "address"
+															}
+														},
+														{
+															"argumentTypes": null,
+															"id": 46,
+															"name": "newOwner",
+															"nodeType": "Identifier",
+															"overloadedDeclarations": [],
+															"referencedDeclaration": 31,
+															"src": "1006:8:0",
+															"typeDescriptions": {
+																"typeIdentifier": "t_address",
+																"typeString": "address"
+															}
+														}
+													],
+													"expression": {
+														"argumentTypes": [
+															{
+																"typeIdentifier": "t_address",
+																"typeString": "address"
+															},
+															{
+																"typeIdentifier": "t_address",
+																"typeString": "address"
+															}
+														],
+														"id": 44,
+														"name": "OwnershipTransferred",
+														"nodeType": "Identifier",
+														"overloadedDeclarations": [],
+														"referencedDeclaration": 9,
+														"src": "978:20:0",
+														"typeDescriptions": {
+															"typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_address_$returns$__$",
+															"typeString": "function (address,address)"
+														}
+													},
+													"id": 47,
+													"isConstant": false,
+													"isLValue": false,
+													"isPure": false,
+													"kind": "functionCall",
+													"lValueRequested": false,
+													"names": [],
+													"nodeType": "FunctionCall",
+													"src": "978:37:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_tuple$__$",
+														"typeString": "tuple()"
+													}
+												},
+												"id": 48,
+												"nodeType": "ExpressionStatement",
+												"src": "978:37:0"
+											},
+											{
+												"expression": {
+													"argumentTypes": null,
+													"id": 51,
+													"isConstant": false,
+													"isLValue": false,
+													"isPure": false,
+													"lValueRequested": false,
+													"leftHandSide": {
+														"argumentTypes": null,
+														"id": 49,
+														"name": "owner",
+														"nodeType": "Identifier",
+														"overloadedDeclarations": [],
+														"referencedDeclaration": 3,
+														"src": "1022:5:0",
+														"typeDescriptions": {
+															"typeIdentifier": "t_address",
+															"typeString": "address"
+														}
+													},
+													"nodeType": "Assignment",
+													"operator": "=",
+													"rightHandSide": {
+														"argumentTypes": null,
+														"id": 50,
+														"name": "newOwner",
+														"nodeType": "Identifier",
+														"overloadedDeclarations": [],
+														"referencedDeclaration": 31,
+														"src": "1030:8:0",
+														"typeDescriptions": {
+															"typeIdentifier": "t_address",
+															"typeString": "address"
+														}
+													},
+													"src": "1022:16:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_address",
+														"typeString": "address"
+													}
+												},
+												"id": 52,
+												"nodeType": "ExpressionStatement",
+												"src": "1022:16:0"
+											}
+										]
+									},
+									"documentation": "@dev Allows the current owner to transfer control of the contract to a newOwner.\r\n@param newOwner The address to transfer ownership to.\r",
+									"id": 54,
+									"implemented": true,
+									"isConstructor": false,
+									"isDeclaredConst": false,
+									"modifiers": [
+										{
+											"arguments": null,
+											"id": 34,
+											"modifierName": {
+												"argumentTypes": null,
+												"id": 33,
+												"name": "onlyOwner",
+												"nodeType": "Identifier",
+												"overloadedDeclarations": [],
+												"referencedDeclaration": 29,
+												"src": "923:9:0",
+												"typeDescriptions": {
+													"typeIdentifier": "t_modifier$__$",
+													"typeString": "modifier ()"
+												}
+											},
+											"nodeType": "ModifierInvocation",
+											"src": "923:9:0"
+										}
+									],
+									"name": "transferOwnership",
+									"nodeType": "FunctionDefinition",
+									"parameters": {
+										"id": 32,
+										"nodeType": "ParameterList",
+										"parameters": [
+											{
+												"constant": false,
+												"id": 31,
+												"name": "newOwner",
+												"nodeType": "VariableDeclaration",
+												"scope": 54,
+												"src": "898:16:0",
+												"stateVariable": false,
+												"storageLocation": "default",
+												"typeDescriptions": {
+													"typeIdentifier": "t_address",
+													"typeString": "address"
+												},
+												"typeName": {
+													"id": 30,
+													"name": "address",
+													"nodeType": "ElementaryTypeName",
+													"src": "898:7:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_address",
+														"typeString": "address"
+													}
+												},
+												"value": null,
+												"visibility": "internal"
+											}
+										],
+										"src": "897:18:0"
+									},
+									"payable": false,
+									"returnParameters": {
+										"id": 35,
+										"nodeType": "ParameterList",
+										"parameters": [],
+										"src": "933:0:0"
+									},
+									"scope": 55,
+									"src": "871:173:0",
+									"stateMutability": "nonpayable",
+									"superFunction": null,
+									"visibility": "public"
+								}
+							],
+							"scope": 56,
+							"src": "225:824:0"
+						}
+					],
+					"src": "0:1049:0"
+				},
+				"id": 0
+			}
+		}
+	}
+}
