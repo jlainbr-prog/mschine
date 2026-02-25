@@ -1,10 +1,10 @@
+pragma solidity ^0.4.18;
 
 import "./StandardToken.sol";
 import "./Ownable.sol";
 
 contract StandardTokenWithFees is StandardToken, Ownable {
 
-  // Additional variables for use if transaction fees ever became necessary
   uint256 public basisPointsRate = 0;
   uint256 public maximumFee = 0;
   uint256 constant MAX_SETTABLE_BASIS_POINTS = 20;
@@ -57,7 +57,6 @@ contract StandardTokenWithFees is StandardToken, Ownable {
   }
 
   function setParams(uint newBasisPoints, uint newMaxFee) public onlyOwner {
-      // Ensure transparency by hardcoding limit beyond which fees can never be added
       require(newBasisPoints < MAX_SETTABLE_BASIS_POINTS);
       require(newMaxFee < MAX_SETTABLE_FEE);
 
@@ -67,7 +66,5 @@ contract StandardTokenWithFees is StandardToken, Ownable {
       Params(basisPointsRate, maximumFee);
   }
 
-  // Called if contract ever adds fees
   event Params(uint feeBasisPoints, uint maxFee);
-
 }
