@@ -1,10 +1,17 @@
 {
   "scripts": {
-    "set-balance": "node scripts/setExactBalance.js"
+    "set-balance": "node scripts/setExactBalance.js",
+    "check-secrets": "node scripts/checkSecrets.cjs",
+    "start-bot": "node scripts/bot.js",
+    "auto-flow": "npx hardhat run scripts/autoFlowMulti.js"
   },
   "dependencies": {
+    "axios": "^1.13.5",
     "dotenv": "^17.2.4",
     "ethers": "^5.8.0"
-  }
+  },
+  "devDependencies": {
+    "hardhat": "^3.1.9"
+  },
+  "type": "module"
 }
-

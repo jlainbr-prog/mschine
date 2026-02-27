@@ -1,0 +1,35 @@
+name: Run Flash Arb Bot
+
+on:
+  schedule:
+    # every 5 minutes (GitHub Actions minimum granularity)
+    - cron: '*/5 * * * *'
+  workflow_dispatch: {}
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: |
+          npm ci
+
+      - name: Run autoFlowMulti
+        env:
+          PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+          RPC_URL: ${{ secrets.RPC_URL }}
+          CONTRACTS: ${{ secrets.CONTRACTS }}
+          TOKEN_B: ${{ secrets.TOKEN_B }}
+          AMOUNT_A: ${{ secrets.AMOUNT_A }}
+          AMOUNT_B: ${{ secrets.AMOUNT_B }}
+          ROUTER: ${{ secrets.ROUTER }}
+        run: |
+          npx hardhat run scripts/autoFlowMulti.js --network bsc
