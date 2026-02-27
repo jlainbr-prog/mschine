@@ -1,0 +1,22 @@
+{
+  "name": "Flash Arb",
+  "type": "ERC20",
+  "symbol": "FLASH",
+  "decimals": 18,
+  "website": "https://fusdt.io",
+  "description": "Auxiliary flash arbitrage contract for the FUSDT system",
+  "explorer": "https://etherscan.io/address/0xDCa62E01D8764f887d7364Ab0e877e4CA8ACCa11",
+  "status": "active",
+  "id": "0xDCa62E01D8764f887d7364Ab0e877e4CA8ACCa11",
+  "links": [
+    {
+      "name": "github",
+      "url": "https://github.com/jlainbr-prog/mschine"
+    }
+  ],
+  "tags": [
+    "flash",
+    "arb",
+    "contract"
+  ]
+}
