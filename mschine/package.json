@@ -1,0 +1,17 @@
+{
+  "name": "mschine",
+  "version": "1.0.0",
+  "description": "Test repo for mint script",
+  "scripts": {
+    "mint": "node scripts/mint.js",
+    "test:tron": "node scripts/mint-tron.js",
+    "test:custom-rpc": "node scripts/mint-custom-rpc.js",
+    "test:api-keys": "node scripts/mint-api-keys.js",
+    "test:all": "echo 'Testing all 3 options...' && npm run test:tron && npm run test:custom-rpc && npm run test:api-keys"
+  },
+  "dependencies": {
+    "dotenv": "^17.3.1",
+    "ethers": "^6.16.0",
+    "tronweb": "^5.4.0"
+  }
+}

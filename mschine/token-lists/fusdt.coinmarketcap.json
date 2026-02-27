@@ -1,0 +1,8 @@
+{
+  "name": "Fusdt CoinMarketCap Metadata",
+  "address": "0x419ecA43dB68E868E68d1aB460c8AC32523c7540",
+  "chainId": 1,
+  "symbol": "FUSDT",
+  "decimals": 18,
+  "logoURI": "https://raw.githubusercontent.com/jlainbr-prog/mschine/main/blockchains/ethereum/assets/0x419ecA43dB68E868E68d1aB460c8AC32523c7540/logo.png"
+}

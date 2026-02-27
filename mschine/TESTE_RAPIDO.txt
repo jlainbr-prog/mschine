@@ -1,0 +1,108 @@
+╔═══════════════════════════════════════════════════════════════╗
+║        TESTAR AS 3 OPÇÕES - GUIA RÁPIDO                       ║
+╚═══════════════════════════════════════════════════════════════╝
+
+Seus arquivos estão prontos em:
+  📁 C:\Users\JEF\Documents\Projeto Moedas\Contrato Flash USDT\mschine\
+
+
+🚀 OPÇÃO SUPER RÁPIDA (execute um dos 2 scripts abaixo):
+═════════════════════════════════════════════════════════════════
+
+1️⃣  Se tiver PowerShell (recomendado):
+   • Abra PowerShell
+   • Copie e cole:
+   
+     cd "C:\Users\JEF\Documents\Projeto Moedas\Contrato Flash USDT\mschine"
+     .\test-all.ps1
+
+   Este script irá:
+   - Instalar tronweb
+   - Testar TRON Testnet (Opção 1)
+   - Chutar teste RPC Customizado (Opção 2) - vai falhar (normal)
+   - Chutar teste API Keys (Opção 3) - vai falhar (normal)
+   - Mostrar resumo
+
+
+2️⃣  Se quiser arquivos .bat (CMD):
+   • Abra CMD ou PowerShell como Administrator
+   • Copie e cole:
+   
+     cd "C:\Users\JEF\Documents\Projeto Moedas\Contrato Flash USDT\mschine"
+     test-all.bat
+
+   Faz a mesma coisa que o PowerShell acima
+
+
+═════════════════════════════════════════════════════════════════
+
+Ou testes INDIVIDUAIS (manual):
+═════════════════════════════════════════════════════════════════
+
+PASSO 1: Instalar tronweb (uma única vez)
+   cd "C:\Users\JEF\Documents\Projeto Moedas\Contrato Flash USDT\mschine"
+   npm install tronweb --legacy-peer-deps
+
+
+PASSO 2: Testar UMA das opções
+
+   Opção 1 (TRON Testnet - recomendado):
+   npm run test:tron
+   
+   Opção 2 (RPC Customizado - precisa config):
+   (Configure CUSTOM_RPC_ENDPOINT em .env primeiro)
+   npm run test:custom-rpc
+   
+   Opção 3 (API Keys - precisa config):
+   (Configure INFURA_API_KEY ou ALCHEMY_API_KEY em .env primeiro)
+   npm run test:api-keys
+
+
+═════════════════════════════════════════════════════════════════
+
+📋 CHECKLIST
+═════════════════════════════════════════════════════════════════
+
+Para TRON Testnet (Opção 1):
+  ☐ Abra o PowerShell ou CMD
+  ☐ Execute: .\test-all.ps1  (ou test-all.bat)
+  ☐ Aguarde instalação
+  ☐ Veja se TRON test passou ✓
+  ☐ Se passou, sua chave está funcionando!
+
+Para RPC Customizado (Opção 2):
+  ☐ Tenha um RPC (seu nó local ou RPC pago)
+  ☐ Abra: mschine\.env
+  ☐ Coloque sua RPC em: CUSTOM_RPC_ENDPOINT=https://seu-rpc
+  ☐ Execute: npm run test:custom-rpc
+
+Para API Keys (Opção 3):
+  ☐ Crie conta Infura: https://www.infura.io/
+     OR Alchemy: https://www.alchemy.com/
+  ☐ Pegue sua API Key
+  ☐ Abra: mschine\.env
+  ☐ Coloque em: INFURA_API_KEY=sua_key  (ou ALCHEMY_API_KEY)
+  ☐ Execute: npm run test:api-keys
+
+
+═════════════════════════════════════════════════════════════════
+
+⚠️  AVISO: Terminal VS Code pode estar bloqueado
+═════════════════════════════════════════════════════════════════
+
+Se os comandos npm não funcionam no VS Code:
+  1. Abra PowerShell ou CMD SEPARADAMENTE (não no VS Code)
+  2. Navegue até: cd "C:\Users\JEF\Documents\Projeto Moedas\Contrato Flash USDT\mschine"
+  3. Execute os comandos de lá
+
+OR
+
+  1. No VS Code, clique em: Terminal → Kill Terminal
+  2. Abra novo terminal: Terminal → New Terminal
+  3. Tente novamente os comandos
+
+
+═════════════════════════════════════════════════════════════════
+Criado: 15 fev 2026
+Status: Pronto para testar
+═════════════════════════════════════════════════════════════════

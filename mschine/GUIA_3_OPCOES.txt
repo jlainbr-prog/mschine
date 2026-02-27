@@ -1,0 +1,125 @@
+╔═══════════════════════════════════════════════════════════════╗
+║        GUIA: 3 OPÇÕES DE TESTE (mschine)                      ║
+║        Data: 15 fev 2026                                      ║
+╚═══════════════════════════════════════════════════════════════╝
+
+📦 PRIMEIRA INSTALAÇÃO - Execute uma vez:
+==========================================
+
+cd C:\Users\JEF\Documents\Projeto Moedas\Contrato Flash USDT\mschine
+npm install tronweb --legacy-peer-deps
+
+(Depois de instalado, escolha uma das 3 opções abaixo)
+
+
+🟦 OPÇÃO 1: TRON TESTNET SHASTA (Recomendado - não precisa API key)
+═════════════════════════════════════════════════════════════════
+
+Status:      ✅ Já configurado (RPC pública funciona)
+Arquivo:     scripts/mint-tron.js
+Comando:     npm run test:tron
+
+O que faz:
+  • Conecta ao TRON Testnet (Shasta)
+  • Verifica seu saldo em TRX
+  • Valida a chave privada
+
+Como completar:
+  1. Execute: npm run test:tron
+  2. Se tiver saldo baixo, obtenha TRX grátis em:
+     https://shasta.tronscan.org/#/transfer
+  3. Use seu endereço que aparecerá na saída
+
+
+🟦 OPÇÃO 2: RPC CUSTOMIZADO (Seu próprio nó ou RPC pago)
+═════════════════════════════════════════════════════════════════
+
+Status:      🟡 Aguardando configuração
+Arquivo:     scripts/mint-custom-rpc.js
+Comando:     npm run test:custom-rpc
+
+Setup:
+  1. Abra: mschine\.env
+  2. Adicione sua RPC em CUSTOM_RPC_ENDPOINT, exemplo:
+     
+     CUSTOM_RPC_ENDPOINT=https://seu-rpc.exemplo.com
+     
+  3. Salve e execute: npm run test:custom-rpc
+
+Exemplos de RPCs pagos:
+  • Infura: https://mainnet.infura.io/v3/YOUR_API_KEY
+  • Alchemy: https://eth-mainnet.g.alchemy.com/v2/YOUR_API_KEY
+  • Ankr: https://rpc.ankr.com/eth (requer API key)
+
+
+🟦 OPÇÃO 3: INFURA OU ALCHEMY API KEYS
+═════════════════════════════════════════════════════════════════
+
+Status:      🟡 Aguardando API key
+Arquivo:     scripts/mint-api-keys.js
+Comando:     npm run test:api-keys
+
+Setup:
+  
+  Método A: INFURA
+  ─────────────
+  1. Crie conta gratuita: https://www.infura.io/
+  2. Crie um projeto "Web3"
+  3. Pegue o API Key
+  4. Abra: mschine\.env
+  5. Adicione:
+     INFURA_API_KEY=seu_api_key_aqui
+  6. Salve e execute: npm run test:api-keys
+
+  Método B: ALCHEMY
+  ─────────────
+  1. Crie conta: https://www.alchemy.com/
+  2. Crie um app "Ethereum Mainnet"
+  3. Pegue o API Key
+  4. Abra: mschine\.env
+  5. Adicione:
+     ALCHEMY_API_KEY=seu_api_key_aqui
+  6. Salve e execute: npm run test:api-keys
+
+
+📋 RESUMO DAS OPÇÕES
+════════════════════
+
+┌─────────────────┬──────────────────┬─────────────┬───────────────┐
+│ Opção           │ Setup Tempo       │ Custo       │ Status Atual  │
+├─────────────────┼──────────────────┼─────────────┼───────────────┤
+│ 1. TRON Testnet │ 2 min (inst pkg) │ Grátis      │ ✅ Pronto     │
+│ 2. RPC Custom   │ 5 min (+ sua RPC)│ Varia       │ 🟡 Config     │
+│ 3. API Keys     │ 10 min (criar acc)│ Grátis+paid │ 🟡 Config     │
+└─────────────────┴──────────────────┴─────────────┴───────────────┘
+
+
+🎯 RECOMENDAÇÃO
+═══════════════════════════════════════════════════════════════
+
+Para teste RÁPIDO: Opção 1 (TRON Testnet)
+  - Sem burocracia de API keys
+  - Funciona agora (RPC público grátis)
+  - Testes de blockchain funcionam
+
+Para production: Opção 2 ou 3 (Ethereum)
+  - Maior compatibilidade com DeFi
+  - Opção 3 (API Keys) é mais fácil se não tiver nó
+  - Opção 2 (Custom RPC) é mais barata se tiver seu nó
+
+
+🚀 PRÓXIMOS PASSOS
+═══════════════════════════════════════════════════════════════
+
+1. Instale: npm install tronweb --legacy-peer-deps
+2. Escolha 1 opção acima
+3. Siga o setup
+4. Execute seu teste npm run <comando>
+5. Post-test: Se bem-sucedido, saiba que a chave privada está funcionando
+
+Arquivos importantes (mschine/):
+  • .env              ← CONFIGURE AQUI suas opções
+  • scripts/          ← Scripts de teste para 3 opções
+  • package.json      ← npm run <script>
+
+═══════════════════════════════════════════════════════════════

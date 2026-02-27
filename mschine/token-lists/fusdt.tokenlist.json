@@ -1,0 +1,39 @@
+{
+  "name": "Fusdt Universal List",
+  "version": {
+    "major": 1,
+    "minor": 0,
+    "patch": 0
+  },
+  "timestamp": "2026-02-27T14:38:53.779Z",
+  "tokens": [
+    {
+      "chainId": 1,
+      "address": "0x419ecA43dB68E868E68d1aB460c8AC32523c7540",
+      "name": "Flash USDT",
+      "symbol": "FUSDT",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/jlainbr-prog/mschine/main/blockchains/ethereum/assets/0x419ecA43dB68E868E68d1aB460c8AC32523c7540/logo.png",
+      "tags": [
+        "stablecoin"
+      ]
+    },
+    {
+      "chainId": 56,
+      "address": "0x419ecA43dB68E868E68d1aB460c8AC32523c7540",
+      "name": "Flash USDT",
+      "symbol": "FUSDT",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/jlainbr-prog/mschine/main/blockchains/smartchain/assets/0x419ecA43dB68E868E68d1aB460c8AC32523c7540/logo.png",
+      "tags": [
+        "stablecoin"
+      ]
+    }
+  ],
+  "logoURI": "https://raw.githubusercontent.com/jlainbr-prog/mschine/main/blockchains/ethereum/assets/0x419ecA43dB68E868E68d1aB460c8AC32523c7540/logo.png",
+  "keywords": [
+    "fusdt",
+    "stablecoin",
+    "flash"
+  ]
+}
