@@ -116,6 +116,24 @@ mschine/
 
 ---
 
+## 📦 Metadados & Submissão de Token
+
+Este repositório também contém ferramentas para gerar e submeter metadados de tokens (por exemplo, FUSDT) aos repositórios
+`trustwallet/assets` e `MetaMask/contract-metadata`.
+
+- `scripts/generate-universal-metadata.js` → cria os diretórios
+  `blockchains/{ethereum,smartchain}/assets/...` e listas (`token-lists/`).
+- `scripts/submit-final.js` → faz upload automático via **GitHub API** e gera
+  *pull requests* nos forks. (use `node scripts/submit-final.js`)
+
+Você precisa ter o [GitHub CLI (`gh`)](https://cli.github.com/) autenticado
+e permissões `repo` no token. No Windows, paths com espaços são tratados
+corretamente pelo script.
+
+Para fluxos manuais, consulte `SUBMISSION-GUIDE.md`.
+
+---
+
 ## Troubleshooting
 
 **npm: comando não encontrado**
