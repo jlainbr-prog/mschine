@@ -30,6 +30,12 @@
 
 ## Verificação automática
 
+> **Automação**
+> Use `node scripts/submit-final.js` para criar automaticamente os *pull
+> requests* em seus forks (Trust Wallet + MetaMask). Isso evita problemas
+> de `git` no Windows e já foi testado com FUSDT.
+
+
 Após merge no GitHub, verifique em:
 - https://cryptologos.cc (agrega logos de múltiplas fontes)
 - https://trustwallet.com/assets (busque pelo endereço)
