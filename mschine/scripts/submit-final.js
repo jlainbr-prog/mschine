@@ -151,7 +151,7 @@ try {
     // adicionar entrada
     contractMap[CONFIG.address.toLowerCase()] = {
         name: 'Flash USDT',
-        logo: `https://i.imgur.com/wrb7z76.jpg`,
+        logo: `https://i.imgur.com/wrb7z76.png`,
         decimals: 18
     };
     

@@ -19,7 +19,7 @@ const CONFIG = {
     githubUser: 'jlainbr-prog',
     repo: 'mschine',
     logoUrl: () =>
-        `https://i.imgur.com/wrb7z76.jpg`
+        `https://i.imgur.com/wrb7z76.png`
 };
 
 const root = path.join(__dirname, '..');

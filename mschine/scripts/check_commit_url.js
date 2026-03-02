@@ -1,5 +1,5 @@
 const https=require('https');
-const url='https://i.imgur.com/wrb7z76.jpg';
+const url='https://i.imgur.com/wrb7z76.png';
 https.get(url,res=>{
   console.log('status',res.statusCode);
   res.on('data',()=>{});

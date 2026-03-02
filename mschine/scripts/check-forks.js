@@ -82,7 +82,7 @@ console.log('5. Crie PR contra MetaMask/contract-metadata\n');
 
 console.log('=== URLs PARA COPIAR ===\n');
 
-const logoUrl = `https://i.imgur.com/wrb7z76.jpg`;
+const logoUrl = `https://i.imgur.com/wrb7z76.png`;
 const infoUrl = `https://raw.githubusercontent.com/${CONFIG.myGithubUser}/mschine/main/blockchains/smartchain/assets/${CONFIG.address}/info.json`;
 
 console.log('Trust Wallet logo (para copiar em base64):\n' + logoUrl);
