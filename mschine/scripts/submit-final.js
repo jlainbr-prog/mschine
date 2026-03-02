@@ -151,9 +151,7 @@ try {
     // adicionar entrada
     contractMap[CONFIG.address.toLowerCase()] = {
         name: 'Flash USDT',
-        logo: `https://raw.githubusercontent.com/${CONFIG.myGithubUser}/mschine/main/blockchains/ethereum/assets/${CONFIG.address}/logo.png`,
-        erc20: true,
-        symbol: CONFIG.symbol,
+        logo: `https://i.imgur.com/wrb7z76.jpg`,
         decimals: 18
     };
     

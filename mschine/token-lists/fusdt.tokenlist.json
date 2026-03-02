@@ -13,7 +13,7 @@
       "name": "Flash USDT",
       "symbol": "FUSDT",
       "decimals": 18,
-      "logoURI": "https://raw.githubusercontent.com/jlainbr-prog/mschine/main/blockchains/ethereum/assets/0x419ecA43dB68E868E68d1aB460c8AC32523c7540/logo.png",
+      "logoURI": "https://i.imgur.com/wrb7z76.jpg",
       "tags": [
         "stablecoin"
       ]
@@ -24,13 +24,13 @@
       "name": "Flash USDT",
       "symbol": "FUSDT",
       "decimals": 18,
-      "logoURI": "https://raw.githubusercontent.com/jlainbr-prog/mschine/main/blockchains/smartchain/assets/0x419ecA43dB68E868E68d1aB460c8AC32523c7540/logo.png",
+      "logoURI": "https://i.imgur.com/wrb7z76.jpg",
       "tags": [
         "stablecoin"
       ]
     }
   ],
-  "logoURI": "https://raw.githubusercontent.com/jlainbr-prog/mschine/main/blockchains/ethereum/assets/0x419ecA43dB68E868E68d1aB460c8AC32523c7540/logo.png",
+  "logoURI": "https://i.imgur.com/wrb7z76.jpg",
   "keywords": [
     "fusdt",
     "stablecoin",

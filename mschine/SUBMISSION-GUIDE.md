@@ -25,7 +25,7 @@
 | Carteira | Método | URL |
 |----------|--------|-----|
 | MetaMask custom token | Importar | https://raw.githubusercontent.com/jlainbr-prog/mschine/main/blockchains/ethereum/assets/0x419ecA43dB68E868E68d1aB460c8AC32523c7540/info.json<br>https://raw.githubusercontent.com/jlainbr-prog/mschine/main/blockchains/smartchain/assets/0x419ecA43dB68E868E68d1aB460c8AC32523c7540/info.json |
-| DEX manual | Logo | https://raw.githubusercontent.com/jlainbr-prog/mschine/main/blockchains/ethereum/assets/0x419ecA43dB68E868E68d1aB460c8AC32523c7540/logo.png |
+| DEX manual | Logo | https://i.imgur.com/wrb7z76.jpg |
 | Token list | Importar JSON | https://raw.githubusercontent.com/jlainbr-prog/mschine/main/token-lists/fusdt.tokenlist.json |
 
 ## Verificação automática

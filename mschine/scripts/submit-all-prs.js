@@ -18,8 +18,8 @@ const CONFIG = {
     decimals: 18,
     githubUser: 'jlainbr-prog',
     repo: 'mschine',
-    logoUrl: (chain='ethereum') =>
-        `https://raw.githubusercontent.com/jlainbr-prog/mschine/main/blockchains/${chain}/assets/0x419ecA43dB68E868E68d1aB460c8AC32523c7540/logo.png`
+    logoUrl: () =>
+        `https://i.imgur.com/wrb7z76.jpg`
 };
 
 const root = path.join(__dirname, '..');
