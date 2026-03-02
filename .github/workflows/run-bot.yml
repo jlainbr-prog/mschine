@@ -22,14 +22,21 @@ jobs:
         run: |
           npm ci
 
-      - name: Run autoFlowMulti
+      - name: Run Flash Arb Bot
         env:
           PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
-          RPC_URL: ${{ secrets.RPC_URL }}
+          RPC_ETH: ${{ secrets.RPC_ETH }}
+          RPC_BSC: ${{ secrets.RPC_BSC }}
+          RECEIVER_ETH: ${{ secrets.RECEIVER_ETH }}
+          RECEIVER_BSC: ${{ secrets.RECEIVER_BSC }}
           CONTRACTS: ${{ secrets.CONTRACTS }}
           TOKEN_B: ${{ secrets.TOKEN_B }}
           AMOUNT_A: ${{ secrets.AMOUNT_A }}
           AMOUNT_B: ${{ secrets.AMOUNT_B }}
           ROUTER: ${{ secrets.ROUTER }}
+          MIN_PROFIT_USD: ${{ secrets.MIN_PROFIT_USD }}
+          SLIPPAGE: ${{ secrets.SLIPPAGE }}
+          GAS_MULTIPLIER: ${{ secrets.GAS_MULTIPLIER }}
+          SINGLE_CYCLE: '1'
         run: |
-          npx hardhat run scripts/autoFlowMulti.js --network bsc
+          node scripts/multi-flash-arbbot.js

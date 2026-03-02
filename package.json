@@ -2,7 +2,11 @@
   "scripts": {
     "set-balance": "node scripts/setExactBalance.js",
     "check-secrets": "node scripts/checkSecrets.cjs",
-    "start-bot": "node scripts/bot.js",
+    "start-bot": "node scripts/multi-flash-arbbot.js",
+    "start-bot-6h": "CYCLE_INTERVAL_HOURS=6 node scripts/multi-flash-arbbot.js",
+    "start-bot-12h": "CYCLE_INTERVAL_HOURS=12 node scripts/multi-flash-arbbot.js",
+    "start-bot-24h": "CYCLE_INTERVAL_HOURS=24 node scripts/multi-flash-arbbot.js",
+    "start-bot-once": "SINGLE_CYCLE=1 node scripts/multi-flash-arbbot.js",
     "auto-flow": "npx hardhat run scripts/autoFlowMulti.js"
   },
   "dependencies": {
