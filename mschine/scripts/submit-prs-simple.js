@@ -51,7 +51,7 @@ console.log(`  - Logo: ${path.join(root, 'blockchains', 'smartchain', 'assets', 
 console.log(`  - Info JSON: ${path.join(root, 'blockchains', 'smartchain', 'assets', CONFIG.address, 'info.json')}\n`);
 
 console.log('URLs acessíveis via raw.githubusercontent.com:');
-console.log(`  - https://i.imgur.com/wrb7z76.png`);
+console.log(`  - ipfs://QmStnABpnxqfJQyjSGHXVS9h8kqrYi17bnsFzCKvoLeE7q`);
 console.log(`  - https://raw.githubusercontent.com/jlainbr-prog/mschine/main/blockchains/smartchain/assets/${CONFIG.address}/info.json\n`);
 
 // salvar tracking

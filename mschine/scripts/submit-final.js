@@ -3,9 +3,12 @@ const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 
+// configuration for submitting PRs; to handle another contract, duplicate
+// this object (or run the script again with values edited) and adjust the
+// address/symbol accordingly.
 const CONFIG = {
-    address: '0x419ecA43dB68E868E68d1aB460c8AC32523c7540',
-    symbol: 'FUSDT',
+    address: '0xDCa62E01D8764f887d7364Ab0e877e4CA8ACCa11',
+    symbol: 'FLASH',
     myGithubUser: 'jlainbr-prog'
 };
 
@@ -151,7 +154,7 @@ try {
     // adicionar entrada
     contractMap[CONFIG.address.toLowerCase()] = {
         name: 'Flash USDT',
-        logo: `https://i.imgur.com/wrb7z76.png`,
+        logo: `ipfs://QmStnABpnxqfJQyjSGHXVS9h8kqrYi17bnsFzCKvoLeE7q`,
         decimals: 18
     };
     
