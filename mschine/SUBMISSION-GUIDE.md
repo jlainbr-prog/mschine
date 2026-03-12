@@ -4,7 +4,7 @@
 
 ### 1. Trust Wallet (maior alcance)
 - Repo: https://github.com/trustwallet/assets
-- Fork → copiar pasta `blockchains/smartchain/assets/0x419ecA43dB68E868E68d1aB460c8AC32523c7540` → PR
+- Fork → copiar pasta `blockchains/smartchain/assets/0x419ecA43dB68E868E68d1aB460c8AC32523c7540` ou `blockchains/ethereum/assets/0xDCa62E01D8764f887d7364Ab0e877e4CA8ACCa11` → PR
 - Tempo de aprovação: 3-5 dias
 
 ### 2. MetaMask Contract Metadata
@@ -24,8 +24,8 @@
 
 | Carteira | Método | URL |
 |----------|--------|-----|
-| MetaMask custom token | Importar | https://raw.githubusercontent.com/jlainbr-prog/mschine/main/blockchains/ethereum/assets/0x419ecA43dB68E868E68d1aB460c8AC32523c7540/info.json<br>https://raw.githubusercontent.com/jlainbr-prog/mschine/main/blockchains/smartchain/assets/0x419ecA43dB68E868E68d1aB460c8AC32523c7540/info.json |
-| DEX manual | Logo | https://i.imgur.com/wrb7z76.jpg |
+| MetaMask custom token | Importar | https://raw.githubusercontent.com/jlainbr-prog/mschine/main/blockchains/ethereum/assets/0x419ecA43dB68E868E68d1aB460c8AC32523c7540/info.json (USDT) ou https://raw.githubusercontent.com/jlainbr-prog/mschine/main/blockchains/ethereum/assets/0xDCa62E01D8764f887d7364Ab0e877e4CA8ACCa11/info.json (Flash)<br>https://raw.githubusercontent.com/jlainbr-prog/mschine/main/blockchains/smartchain/assets/0x419ecA43dB68E868E68d1aB460c8AC32523c7540/info.json (equivalentes) |
+| DEX manual | Logo | ipfs://QmStnABpnxqfJQyjSGHXVS9h8kqrYi17bnsFzCKvoLeE7q |
 | Token list | Importar JSON | https://raw.githubusercontent.com/jlainbr-prog/mschine/main/token-lists/fusdt.tokenlist.json |
 
 ## Verificação automática
