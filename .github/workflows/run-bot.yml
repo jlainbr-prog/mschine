@@ -1,13 +1,15 @@
 name: Run Flash Arb Bot
 
 on:
-  schedule:
-    # every 5 minutes (GitHub Actions minimum granularity)
-    - cron: '*/5 * * * *'
+  # Standby: workflow desativado por padrão.
+  # Para reativar no futuro, remova/ajuste a condição ENABLE_BOT no job abaixo.
   workflow_dispatch: {}
 
 jobs:
   run-bot:
+    # PAUSED: Bot temporariamente pausado até nova ativação
+    # Para reativar: remova ou comente a linha 'if: false' abaixo
+    if: false
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
