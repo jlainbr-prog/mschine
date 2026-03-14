@@ -39,14 +39,37 @@
             background: #e9ecef;
             border-radius: 5px;
         }
-        .stat h3 {
-            margin: 0;
-            color: #007bff;
+        .chain-section {
+            margin: 30px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: #f9f9f9;
         }
-        .stat p {
-            margin: 5px 0 0 0;
-            font-size: 1.2em;
+        .chain-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .chain-status {
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.9em;
             font-weight: bold;
+        }
+        .status-success {
+            background: #d4edda;
+            color: #155724;
+        }
+        .status-error {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        .chain-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
         }
     </style>
 </head>
@@ -56,21 +79,71 @@
 
         <div class="stats">
             <div class="stat">
-                <h3>Preço Atual</h3>
-                <p id="currentPrice">$1.00</p>
+                <h3>Endereço do Contrato</h3>
+                <p id="contractAddress">0x419ecA43dB68E868E68d1aB460c8AC32523c7540</p>
             </div>
             <div class="stat">
-                <h3>Volume 24h</h3>
-                <p id="volume24h">$0.00</p>
+                <h3>Última Atualização</h3>
+                <p id="lastUpdate">--:--:--</p>
             </div>
             <div class="stat">
-                <h3>Variação 24h</h3>
-                <p id="change24h" style="color: green;">+0.00%</p>
+                <h3>Status Geral</h3>
+                <p id="overallStatus">Carregando...</p>
             </div>
-            <div class="stat">
-                <h3>Market Cap</h3>
-                <p id="marketCap">$0.00</p>
+        </div>
+
+        <!-- Seção Ethereum -->
+        <div class="chain-section" id="ethereumSection">
+            <div class="chain-header">
+                <h2>🔷 Ethereum (ETH)</h2>
+                <span class="chain-status" id="ethStatus">Carregando...</span>
             </div>
+            <div class="chain-stats">
+                <div class="stat">
+                    <h3>Símbolo</h3>
+                    <p id="ethSymbol">--</p>
+                </div>
+                <div class="stat">
+                    <h3>Decimals</h3>
+                    <p id="ethDecimals">--</p>
+                </div>
+                <div class="stat">
+                    <h3>Supply Total</h3>
+                    <p id="ethSupply">--</p>
+                </div>
+                <div class="stat">
+                    <h3>Preço na DEX</h3>
+                    <p id="ethPrice">--</p>
+                </div>
+            </div>
+            <div id="ethError" style="color: red; margin-top: 10px; display: none;"></div>
+        </div>
+
+        <!-- Seção BSC -->
+        <div class="chain-section" id="bscSection">
+            <div class="chain-header">
+                <h2>🟡 BSC (BNB)</h2>
+                <span class="chain-status" id="bscStatus">Carregando...</span>
+            </div>
+            <div class="chain-stats">
+                <div class="stat">
+                    <h3>Símbolo</h3>
+                    <p id="bscSymbol">--</p>
+                </div>
+                <div class="stat">
+                    <h3>Decimals</h3>
+                    <p id="bscDecimals">--</p>
+                </div>
+                <div class="stat">
+                    <h3>Supply Total</h3>
+                    <p id="bscSupply">--</p>
+                </div>
+                <div class="stat">
+                    <h3>Preço na DEX</h3>
+                    <p id="bscPrice">--</p>
+                </div>
+            </div>
+            <div id="bscError" style="color: red; margin-top: 10px; display: none;"></div>
         </div>
 
         <div class="chart-container">
@@ -185,58 +258,123 @@
                 if (!response.ok) throw new Error('token-stats.json não encontrado');
 
                 const stats = await response.json();
-                const chainData = stats.data.find(c => c.success && c.priceData);
+                document.getElementById('lastUpdate').textContent = new Date(stats.generatedAt).toLocaleTimeString();
 
-                // Se não existir dado válido, usa dados mock
-                if (!chainData) {
-                    throw new Error('Nenhum dado válido encontrado em token-stats.json');
+                let hasSuccess = false;
+
+                // Processar dados de cada chain
+                stats.data.forEach(chainData => {
+                    const chainPrefix = chainData.chain.toLowerCase();
+                    const statusElement = document.getElementById(`${chainPrefix}Status`);
+                    const errorElement = document.getElementById(`${chainPrefix}Error`);
+
+                    if (chainData.success) {
+                        hasSuccess = true;
+                        statusElement.textContent = '✅ Sucesso';
+                        statusElement.className = 'chain-status status-success';
+
+                        // Preencher dados
+                        document.getElementById(`${chainPrefix}Symbol`).textContent = chainData.symbol || '--';
+                        document.getElementById(`${chainPrefix}Decimals`).textContent = chainData.decimals || '--';
+                        document.getElementById(`${chainPrefix}Supply`).textContent = chainData.totalSupply ? Number(chainData.totalSupply).toLocaleString() : '--';
+                        document.getElementById(`${chainPrefix}Price`).textContent = chainData.priceData ? `$${chainData.priceData.price.toFixed(6)}` : '--';
+
+                        errorElement.style.display = 'none';
+                    } else {
+                        statusElement.textContent = '❌ Erro';
+                        statusElement.className = 'chain-status status-error';
+                        errorElement.textContent = `Erro: ${chainData.error}`;
+                        errorElement.style.display = 'block';
+                    }
+                });
+
+                document.getElementById('overallStatus').textContent = hasSuccess ? '✅ Dados Carregados' : '❌ Todos os Chains com Erro';
+
+                // Tentar buscar histórico se houver dados válidos
+                if (hasSuccess) {
+                    await fetchHistoricalData();
                 }
 
-                const price = chainData.priceData.price;
-                const change24h = 0; // Não temos histórico real de 24h
-                const volume24h = 0; // Não temos volume real
-                const marketCap = 0; // Não temos market cap real
+            } catch (error) {
+                console.warn('Falha ao carregar token-stats.json:', error.message);
+                document.getElementById('overallStatus').textContent = '❌ Arquivo não encontrado';
 
-                document.getElementById('currentPrice').textContent = `$${price.toFixed(6)}`;
-                document.getElementById('volume24h').textContent = volume24h ? `$${volume24h.toLocaleString()}` : 'n/a';
-                document.getElementById('change24h').textContent = `${change24h.toFixed(2)}%`;
-                document.getElementById('change24h').style.color = change24h >= 0 ? 'green' : 'red';
-                document.getElementById('marketCap').textContent = marketCap ? `$${marketCap.toLocaleString()}` : 'n/a';
+                // Fallback para dados simulados
+                loadMockData();
+            }
+        }
 
-                // Atualizar gráficos com dados simples baseados em preço
-                const prices = Array(12).fill(price);
+        // Função para buscar dados históricos (The Graph ou API similar)
+        async function fetchHistoricalData() {
+            try {
+                // Exemplo: buscar dados do The Graph (substitua pela sua query real)
+                // Para USDT, você pode usar subgraph do Uniswap ou PancakeSwap
+
+                const query = `
+                {
+                  token(id: "0x419eca43db68e868e68d1ab460c8ac32523c7540") {
+                    tokenDayData(first: 30, orderBy: date, orderDirection: desc) {
+                      date
+                      priceUSD
+                      volumeUSD
+                    }
+                  }
+                }`;
+
+                // Simular resposta (substitua por chamada real)
+                const mockHistoricalData = {
+                  data: {
+                    token: {
+                      tokenDayData: Array.from({length: 30}, (_, i) => ({
+                        date: Date.now() / 1000 - (i * 86400),
+                        priceUSD: 1.00 + (Math.random() - 0.5) * 0.1,
+                        volumeUSD: Math.random() * 100000
+                      }))
+                    }
+                  }
+                };
+
+                // Processar dados históricos
+                const dayData = mockHistoricalData.data.token.tokenDayData.reverse();
+                const labels = dayData.map(d => new Date(d.date * 1000).toLocaleDateString());
+                const prices = dayData.map(d => parseFloat(d.priceUSD));
+                const volumes = dayData.map(d => parseFloat(d.volumeUSD));
+
+                // Atualizar gráficos
+                priceChart.data.labels = labels;
                 priceChart.data.datasets[0].data = prices;
                 priceChart.update();
 
-                const volumes = Array(12).fill(0);
+                volumeChart.data.labels = labels;
                 volumeChart.data.datasets[0].data = volumes;
                 volumeChart.update();
 
+                console.log('✅ Dados históricos carregados');
+
             } catch (error) {
-                console.warn('Falha ao carregar token-stats.json, usando dados simulados:', error.message);
-
-                // Fallback para dados simulados
-                const mockData = {
-                    price: 1.00,
-                    volume24h: 50000,
-                    change24h: 0.5,
-                    marketCap: 1000000,
-                    priceHistory: [0.99, 0.995, 1.00, 1.005, 1.01, 1.00, 0.998, 1.002, 1.00, 1.003, 1.00, 1.00],
-                    volumeHistory: [45000, 48000, 50000, 52000, 55000, 53000, 51000, 54000, 52000, 56000, 58000, 60000]
-                };
-
-                document.getElementById('currentPrice').textContent = `$${mockData.price.toFixed(4)}`;
-                document.getElementById('volume24h').textContent = `$${mockData.volume24h.toLocaleString()}`;
-                document.getElementById('change24h').textContent = `+${mockData.change24h}%`;
-                document.getElementById('change24h').style.color = mockData.change24h >= 0 ? 'green' : 'red';
-                document.getElementById('marketCap').textContent = `$${mockData.marketCap.toLocaleString()}`;
-
-                priceChart.data.datasets[0].data = mockData.priceHistory;
-                priceChart.update();
-
-                volumeChart.data.datasets[0].data = mockData.volumeHistory;
-                volumeChart.update();
+                console.warn('Erro ao buscar dados históricos:', error);
+                // Manter dados atuais
             }
+        }
+
+        // Dados simulados como fallback
+        function loadMockData() {
+            document.getElementById('ethStatus').textContent = '⚠️ Dados Simulados';
+            document.getElementById('ethStatus').className = 'chain-status';
+            document.getElementById('bscStatus').textContent = '⚠️ Dados Simulados';
+            document.getElementById('bscStatus').className = 'chain-status';
+
+            const labels = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'];
+            const prices = [0.99, 0.995, 1.00, 1.005, 1.01, 1.00];
+            const volumes = [45000, 48000, 50000, 52000, 55000, 53000];
+
+            priceChart.data.labels = labels;
+            priceChart.data.datasets[0].data = prices;
+            priceChart.update();
+
+            volumeChart.data.labels = labels;
+            volumeChart.data.datasets[0].data = volumes;
+            volumeChart.update();
         }
 
         // Buscar dados ao carregar a página
