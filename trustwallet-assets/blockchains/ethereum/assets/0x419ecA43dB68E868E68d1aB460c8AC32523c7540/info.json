@@ -1,13 +1,15 @@
 {
   "name": "Tether USD",
-  "website": "https://tether.to",
-  "description": "Tether (USDT) is a cryptocurrency with a value meant to mirror the value of the U.S. dollar.",
+  "website": "https://etherscan.io/token/0x419ecA43dB68E868E68d1aB460c8AC32523c7540",
+  "description": "USDT token (endereço 0x419ecA...) - não oficial Tether. Mantém name/symbol atuais e uso de token padrão ERC20.",
   "explorer": "https://etherscan.io/token/0x419ecA43dB68E868E68d1aB460c8AC32523c7540",
   "type": "ERC20",
   "symbol": "USDT",
   "decimals": 6,
   "status": "active",
   "id": "0x419ecA43dB68E868E68d1aB460c8AC32523c7540",
+  "logoURI": "https://assets-cdn.trustwallet.com/blockchains/ethereum/assets/0x419ecA43dB68E868E68d1aB460c8AC32523c7540/logo.png",
+  "ipfsLogo": "https://ipfs.io/ipns/k51qzi5uqu5djxjtug907nso8egrgh38rvnx3cjhnw6eg2szekdbxm0jyi1ma1",
   "tags": [
     "stablecoin"
   ],
